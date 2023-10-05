@@ -1,0 +1,33 @@
+default_ethereum_client_images:
+### Consensus layer clients
+  lighthouse: sigp/lighthouse:latest
+  lodestar: chainsafe/lodestar:latest
+  nimbus: statusim/nimbus-eth2:multiarch-latest
+  prysm: ethpandaops/prysm:develop
+  prysm_validator: ethpandaops/prysm-validator:develop
+  teku: consensys/teku:latest
+### Execution layer clients
+  besu: hyperledger/besu:latest
+  geth: ethereum/client-go:stable
+  erigon: thorax/erigon:stable
+  ethereumjs: ethpandaops/ethereumjs:master
+  nethermind: nethermindeth/nethermind:cancun
+  reth: ethpandaops/reth:main
+
+
+default_tooling_images:
+  xatu_sentry: ethpandaops/xatu:latest
+  ethereum_metrics_exporter: ethpandaops/ethereum-metrics-exporter:latest
+  tx_fuzz: ethpandaops/tx-fuzz:latest
+  forkmon: skylenet/nodemonitor:darkmode
+  forky: ethpandaops/forky:latest
+  fauceth: skylenet/fauceth:fix_fee_estimation
+  ethstats: skylenet/ethstats-server:poa-no-geoip
+  homepage: ethpandaops/ethereum-testnet-homepage:latest
+  checkpointz: ethpandaops/checkpointz:0.0.10-dencun-debian
+  blockscout: blockscout/blockscout:master
+  beacon_metrics_gazer: dapplion/beacon-metrics-gazer:latest
+  eth_fauceth: chainflag/eth-faucet:latest
+  blobscan: blossomlabs/blobscan:latest
+  blobscan_indexer: blossomlabs/blobscan-indexer:latest
+  dora: ethpandaops/dora:master
