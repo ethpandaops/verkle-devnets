@@ -2,7 +2,7 @@
 variable "bootnode" {
   default = {
     name            = "bootnode"
-    count           = 0
+    count           = 1
     validator_start = 0
     validator_end   = 0
   }
@@ -14,7 +14,7 @@ variable "lighthouse_geth" {
     name            = "lighthouse-geth"
     count           = 0
     validator_start = 0
-    validator_end   = 100
+    validator_end   = 0
   }
 }
 
@@ -122,9 +122,9 @@ variable "prysm_reth" {
 variable "lodestar_geth" {
   default = {
     name            = "lodestar-geth"
-    count           = 0
+    count           = 10
     validator_start = 0
-    validator_end   = 0
+    validator_end   = 1000
   }
 }
 
@@ -250,7 +250,7 @@ variable "teku_besu" {
 variable "teku_nethermind" {
   default = {
     name            = "teku-nethermind"
-    count           = 1
+    count           = 0
     validator_start = 0
     validator_end   = 0
   }

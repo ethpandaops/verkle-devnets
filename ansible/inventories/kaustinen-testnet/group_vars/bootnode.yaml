@@ -11,30 +11,26 @@ eth_inventory_web_container_env:
 
 # role: ethpandaops.general.ethereum_node
 ethereum_node_el: geth
-ethereum_node_cl: teku
+ethereum_node_cl: lodestar
 ethereum_node_cl_validator_enabled: false
 
-# role: ethpandaops.general.teku
-teku_container_name: beacon
-teku_container_image: "{{ default_ethereum_client_images.teku }}"
-teku_container_env:
+# role: ethpandaops.general.lodestar
+lodestar_container_name: beacon
+lodestar_container_image: "{{ default_ethereum_client_images.lodestar }}"
+lodestar_container_env:
   VIRTUAL_HOST: "{{ ethereum_node_beacon_hostname }}"
   VIRTUAL_PORT: "{{ ethereum_node_cl_ports_http_beacon | string }}"
   LETSENCRYPT_HOST: "{{ ethereum_node_beacon_hostname }}"
-teku_container_volumes:
-  - "{{ teku_datadir }}:/data"
-  - "{{ teku_auth_jwt_path }}:/execution-auth.jwt:ro"
+lodestar_container_volumes:
+  - "{{ lodestar_datadir }}:/data"
+  - "{{ lodestar_auth_jwt_path }}:/execution-auth.jwt:ro"
   - "{{ eth_testnet_config_dir }}:/network-config:ro"
-teku_container_command_extra_args:
-  - --network=/network-config/config.yaml
-  - --initial-state=/network-config/genesis.ssz
-  - --p2p-peer-upper-bound=100
-  - --data-storage-non-canonical-blocks-enabled=true
-  - --data-storage-mode=PRUNE
-  - --logging=info
-  - --Xlog-include-p2p-warnings-enabled
-  - --metrics-block-timing-tracking-enabled
-  # - --initial-state={{ checkpoint_sync_url }} # Need to remove genesis.ssz if using this
+lodestar_container_command_extra_args:
+  - --paramsFile=/network-config/config.yaml
+  - --genesisStateFile=/network-config/genesis.ssz
+  - --rest.namespace="*"
+  - --network.connectToDiscv5Bootnodes
+  - --nat=true
 
 # role: ethpandaops.general.geth
 geth_container_name: execution

@@ -25,7 +25,7 @@ terraform {
     endpoint                    = "https://fra1.digitaloceanspaces.com"
     region                      = "us-east-1"
     bucket                      = "merge-testnets"
-    key                         = "infrastructure/devnet-0/terraform.tfstate"
+    key                         = "infrastructure/kaustinen-testnet/terraform.tfstate"
   }
 }
 
@@ -48,7 +48,7 @@ variable "cloudflare_api_token" {
 
 variable "ethereum_network" {
   type    = string
-  default = "devnet-0"
+  default = "kaustinen-testnet"
 }
 
 variable "base_cidr_block" {

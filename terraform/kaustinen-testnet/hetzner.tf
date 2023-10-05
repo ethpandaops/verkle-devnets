@@ -69,7 +69,7 @@ locals {
 locals {
   hcloud_default_location    = "nbg1"
   hcloud_default_image       = "debian-12"
-  hcloud_default_server_type = "cpx21"
+  hcloud_default_server_type = "ccx13"
   hcloud_global_labels = [
     "Owner:Devops",
     "EthNetwork:${var.ethereum_network}"
@@ -224,5 +224,5 @@ resource "local_file" "ansible_inventory" {
       )
     }
   )
-  filename = "../../ansible/inventories/devnet-0/inventory.ini"
+  filename = "../../ansible/inventories/kaustinen-testnet/inventory.ini"
 }
