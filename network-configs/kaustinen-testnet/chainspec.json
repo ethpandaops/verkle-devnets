@@ -41,12 +41,12 @@
     "eip3198Transition": "0x0",
     "eip3529Transition": "0x0",
     "eip3541Transition": "0x0",
-    "eip4895TransitionTimestamp": "0x651fe568",
-    "eip3855TransitionTimestamp": "0x651fe568",
-    "eip3651TransitionTimestamp": "0x651fe568",
-    "eip3860TransitionTimestamp": "0x651fe568",
+    "eip4895TransitionTimestamp": "0x651fe694",
+    "eip3855TransitionTimestamp": "0x651fe694",
+    "eip3651TransitionTimestamp": "0x651fe694",
+    "eip3860TransitionTimestamp": "0x651fe694",
     "terminalTotalDifficulty": "0x0",
-    "eip6800TransitionTimestamp": "0x651fe568"
+    "eip6800TransitionTimestamp": "0x651fe694"
   },
   "genesis": {
     "seal": {
@@ -57,7 +57,7 @@
     },
     "difficulty": "0x01",
     "author": "0x0000000000000000000000000000000000000000",
-    "timestamp": "0x651fe52c",
+    "timestamp": "0x651fe658",
     "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "extraData": "",
     "gasLimit": "0x17D7840"
