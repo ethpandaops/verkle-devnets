@@ -39,8 +39,8 @@ ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_ima
 ethereum_genesis_network_seed: "{{ ansible_inventory_sources[0] }}"
 ethereum_genesis_chain_id: "69420"
 ethereum_genesis_generator_output_dir: "../network-configs/{{ ethereum_network_name }}"
-ethereum_genesis_timestamp: "1696598177"
-ethereum_genesis_timedelay: 600
+ethereum_genesis_timestamp: "1696602276"
+ethereum_genesis_timedelay: 900
 ethereum_genesis_validator_bls_change_operations_enabled: false
 ethereum_genesis_timestamp_relative_cmd:
   Linux: "date +%s -d '+45 minutes'"
