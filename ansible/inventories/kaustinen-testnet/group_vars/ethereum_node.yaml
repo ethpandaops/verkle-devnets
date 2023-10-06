@@ -4,6 +4,8 @@ ethereum_cl_bootnodes:
 
 ethereum_el_bootnodes: 
   - "{{ hostvars['bootnode-1']['ethereum_node_fact_el_enode'] }}"
+#  - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_el_enode'] }}"
+#  - "{{ hostvars['lodestar-geth-10']['ethereum_node_fact_el_enode'] }}"
 
 # role: ethpandaops.general.prometheus
 prometheus_remote_push_url_old: https://victoriametrics.ethdevops.io/insert/0/prometheus/api/v1/write
