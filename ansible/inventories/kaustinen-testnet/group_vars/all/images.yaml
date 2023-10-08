@@ -1,6 +1,6 @@
 default_ethereum_client_images:
 ### Consensus layer clients
-  lodestar: ethpandaops/lodestar:g11tech-verge
+  lodestar: g11tech/lodestar:verkle-debug
 ### Execution layer clients
   geth: ethpandaops/geth:kaustinen-with-shapella-0d935b4
 
