@@ -11,12 +11,11 @@
     "istanbulBlock": 0,
     "berlinBlock": 0,
     "londonBlock": 0,
-    "mergeNetsplitBlock": 0,
+    "preMergeForkBlock": 0,
     "terminalTotalDifficulty": 0,
-    "terminalTotalDifficultyPassed": true,
-    "shanghaiTime": 0,
-    "pragueTime": 1696771296,
-    "proofInBlocks": true
+    "shanghaiTime": 1696771296,
+    "ethash": {},
+    "pragueTime": 1696771296
   },
   "alloc": {
     "0x0000000000000000000000000000000000000000": {
@@ -846,6 +845,7 @@
     }
   },
   "coinbase": "0x0000000000000000000000000000000000000000",
+  "baseFeePerGas": "0x3B9ACA00",
   "difficulty": "0x01",
   "extraData": "",
   "gasLimit": "0x17D7840",
