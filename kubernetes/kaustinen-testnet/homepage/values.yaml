@@ -113,26 +113,14 @@ testnet-homepage:
         dataLookup: github
       - name: "JSON RPC"
         dataLookup: rpcUrl
-      - name: "Explorer"
-        dataLookup: explorerUrl
       - name: "Dora the Explorer"
         dataLookup: doraUrl
-      - name: "Beaconchain explorer (not working)"
-        dataLookup: "beaconexplorerUrl"
-      - name: "Blobscan"
-        dataLookup: blobscanUrl
-      - name: "Blobscan ethpanda edition"
-        dataLookup: blobscanethpandaUrl
-      - name: "Checkpoint Sync"
-        dataLookup: checkpointSyncUrl
       - name: "Faucet 1"
         dataLookup: faucetUrl
       - name: "Faucet 2"
         dataLookup: faucet2Url
       - name: "Forkmon"
         dataLookup: forkmonUrl
-      - name: "Ethstats"
-        dataLookup: ethstatsUrl
     menu:
       main:
         - identifier: ethereum-website
