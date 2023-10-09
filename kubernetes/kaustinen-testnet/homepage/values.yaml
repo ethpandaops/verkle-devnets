@@ -25,14 +25,11 @@ testnet-homepage:
             pathType: Prefix
 
   customMarkdown: |-
-    ## Network Spec
-    https://notes.ethereum.org/@ethpandaops/kaustinen-testnet
-
     ## Ansible setup
-    https://github.com/ethpandaops/dencun-testnet
+    https://github.com/ethpandaops/verkle-testnets
 
     ## Client versions
-    https://github.com/ethpandaops/dencun-testnet/blob/master/ansible/inventories/kaustinen-testnet/group_vars/all/images.yaml
+    https://github.com/ethpandaops/verkle-testnets/blob/master/ansible/inventories/kaustinen-testnet/group_vars/all/images.yaml
 
     ## Validator ranges
     - https://config.kaustinen-testnet.ethpandaops.io/api/v1/nodes/validator-ranges
@@ -92,17 +89,10 @@ testnet-homepage:
         faucetUrl: https://faucet.kaustinen-testnet.ethpandaops.io
         faucet2Url: https://faucet-2.kaustinen-testnet.ethpandaops.io
         rpcUrl: https://rpc.kaustinen-testnet.ethpandaops.io
-        explorerUrl: https://explorer.kaustinen-testnet.ethpandaops.io
         forkmonUrl: https://forkmon.kaustinen-testnet.ethpandaops.io
-        beaconexplorerUrl: "https://kaustinen-testnet.beaconcha.in"
-        doraUrl: https://dora.kaustinen-testnet.ethpandaops.io
-        checkpointSyncUrl: "https://checkpoint-sync.kaustinen-testnet.ethpandaops.io"
-        blobscanUrl: https://blobscan.com
-        blobscanethpandaUrl: https://blobscan.kaustinen-testnet.ethpandaops.io
-        ethstatsUrl: https://ethstats.kaustinen-testnet.ethpandaops.io
         chainName: "kaustinen-testnet"
         chainId: "69420"
-        github: https://github.com/ethpandaops/dencun-testnet/tree/master/network-configs/kaustinen-testnet
+        github: https://github.com/ethpandaops/verkle-testnets/tree/master/network-configs/kaustinen-testnet
       metamask:
         enabled: true
       logo:
@@ -147,4 +137,4 @@ testnet-homepage:
           url: https://ethereum.org
           weight: 30
     disableKinds: ["taxonomy", "taxonomyTerm"]
-    copyright: "Long live the surge"
+    copyright: "Long live the verge"

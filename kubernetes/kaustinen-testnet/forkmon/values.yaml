@@ -16,8 +16,8 @@ forkmon:
   network: kaustinen-testnet
   endpoints:
   # Rpc
-  - addr: http://geth-teku-001:8545
-    name: rpc-teku-geth-001
+  - addr: http://geth-lodestar-001:8545
+    name: rpc-lodestar-geth-001
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.bootnode-1.srv.kaustinen-testnet.ethpandaops.io
     name: bootnode-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-1.srv.kaustinen-testnet.ethpandaops.io

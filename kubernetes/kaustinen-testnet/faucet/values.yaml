@@ -46,7 +46,7 @@ fauceth:
         "chain": "dencunEth",
         "icon": "ethereum",
         "rpc": [
-          "http://geth-teku-001:8545"
+          "http://geth-lodestar-001:8545"
         ],
         "faucets": [],
         "nativeCurrency": {

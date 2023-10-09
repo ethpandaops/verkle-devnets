@@ -167,3 +167,9 @@ docker_nginx_proxy_container_volumes:
   - "{{ docker_nginx_proxy_datadir }}/certs:/etc/nginx/certs:ro"
   - html:/usr/share/nginx/html
   - "{{ docker_nginx_proxy_datadir }}/htpasswd:/etc/nginx/htpasswd:ro"
+
+# role: ethpandaops.general.generate_kubernetes_config
+gen_kubernetes_config_ethereum_node:
+  el: geth
+  cl: lodestar
+  value: "001"
