@@ -92,7 +92,7 @@ testnet-homepage:
         explorerUrl: ""
         ethstatsUrl: ""
         forkmonUrl: https://forkmon.kaustinen-testnet.ethpandaops.io
-        blockExplorerUrl: ""
+        beaconexplorerUrl: "https://dora.kaustinen-testnet.ethpandaops.io"
         chainName: "kaustinen-testnet"
         chainId: "69420"
         github: https://github.com/ethpandaops/verkle-testnets/tree/master/network-configs/kaustinen-testnet
