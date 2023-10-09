@@ -11,83 +11,83 @@ config:
     # Support all files as they appear in the github repo
     - path: /besu.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/besu.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/besu.json
     - path: /bootnode.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/bootnode.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/bootnode.txt
     - path: /bootstrap_nodes.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/bootstrap_nodes.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/bootstrap_nodes.txt
     - path: /chainspec.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/chainspec.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/chainspec.json
     - path: /config.yaml
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/config.yaml
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/config.yaml
     - path: /deploy_block.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deploy_block.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deploy_block.txt
     - path: /deposit_contract.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deposit_contract.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deposit_contract.txt
     - path: /deposit_contract_block.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deposit_contract_block.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deposit_contract_block.txt
     - path: /deposit_contract_block_hash.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deposit_contract_block_hash.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deposit_contract_block_hash.txt
     - path: /genesis.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/genesis.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/genesis.json
     - path: /genesis.ssz
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/genesis.ssz
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/genesis.ssz
     - path: /parseBeaconState.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/parseBeaconState.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/parseBeaconState.json
     - path: /trusted_setup.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/trusted_setup.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/trusted_setup.txt
     - path: /trusted_setup.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/trusted_setup.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/trusted_setup.json
 
     # Execution Layer specific redirects
     - path: /el/bootnodes
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/bootnode.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/bootnode.txt
     - path: /el/besu.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/besu.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/besu.json
     - path: /el/chainspec.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/chainspec.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/chainspec.json
     - path: /el/genesis.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/genesis.json
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/genesis.json
 
     # Consensus Layer specific redirects
     - path: /cl/bootstrap_nodes.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/bootstrap_nodes.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/bootstrap_nodes.txt
     - path: /cl/boot_enr.yaml
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/boot_enr.yaml
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/boot_enr.yaml
     - path: /cl/config.yaml
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/config.yaml
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/config.yaml
     - path: /cl/genesis.ssz
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/genesis.ssz
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/genesis.ssz
     - path: /cl/deploy_block.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deploy_block.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deploy_block.txt
     - path: /cl/deposit_contract.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deposit_contract.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deposit_contract.txt
     - path: /cl/deposit_contract_block.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/dencun-testnet/master/network-configs/kaustinen-testnet/deposit_contract_block.txt
+      target: /ethpandaops/verkle-testnets/master/network-configs/kaustinen-testnet/deposit_contract_block.txt
 
     # Ansible generated ethereum nodes inventory
     - path: /api/v1/nodes/inventory
