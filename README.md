@@ -144,3 +144,15 @@ curl -s https://config.devnet-0.ethpandaops.io/api/v1/nodes/inventory | jq -r '.
 # Find all .sops.* and *.enc.* files and update their keys
 find . -type d -name "vendor" -prune -o \( -type f \( -name "*.sops.*" -o -name "*.enc.*" \) \) -exec sops updatekeys {} -y \;
 ```
+
+## Genesis allocation used:
+Here's a table of where the keys are used
+
+| Account Index | Component Used In | Private Key Used | Public Key Used | Comment                                            |
+|---------------|-------------------|------------------|----------------|----------------------------------------------------|
+| 0             | tx_fuzz_txs       | ✅                |                | Spams blobs on the network                         |
+| 1             | faucet1&2         | ✅                |                | manually funded these two due to k8s secrets issue |
+| 2             |                   |                  |                |                                                    |
+| 3             |                   |                  |                |                                                    |
+| 4             |                   |                  |                |                   |
+| 5             |                   |                  |                |                                                    |
