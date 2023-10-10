@@ -104,7 +104,7 @@ lodestar-geth-001:
           - name: storage
             mountPath: "/data"
       - name: init-genesis
-        image: ethpandaops/geth:kaustinen-with-shapella-0d935b4
+        image: ethpandaops/geth:kaustinen-with-shapella-332dfe2
         imagePullPolicy: Always
         securityContext:
           runAsNonRoot: false
