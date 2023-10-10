@@ -46,7 +46,7 @@ lodestar-geth-001:
     fullnameOverride: geth-lodestar-001
     image:
       repository: ethpandaops/geth
-      tag: kaustinen-with-shapella-0d935b4
+      tag: kaustinen-with-shapella-332dfe2
       pullPolicy: Always
     p2pNodePort:
       enabled: false
