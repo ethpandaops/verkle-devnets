@@ -1,10 +1,10 @@
-ethereum_cl_bootnodes:
-  - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_cl_enr'] }}"
-  - "{{ hostvars['lodestar-geth-10']['ethereum_node_fact_cl_enr'] }}"
-
-ethereum_el_bootnodes:
-  - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_el_enode'] }}"
-  - "{{ hostvars['lodestar-geth-10']['ethereum_node_fact_el_enode'] }}"
+#ethereum_cl_bootnodes:
+#  - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_cl_enr'] }}"
+#  - "{{ hostvars['lodestar-geth-10']['ethereum_node_fact_cl_enr'] }}"
+#
+#ethereum_el_bootnodes:
+#  - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_el_enode'] }}"
+#  - "{{ hostvars['lodestar-geth-10']['ethereum_node_fact_el_enode'] }}"
 
 # role: eth_inventory_web
 eth_inventory_web_container_networks: "{{ docker_networks_shared }}"
@@ -37,7 +37,7 @@ lodestar_container_command_extra_args:
   - --rest.namespace="*"
   - --network.connectToDiscv5Bootnodes
   - --nat=true
-  - --bootnodes={{ ethereum_cl_bootnodes | join(',') }}
+#  - --bootnodes={{ ethereum_cl_bootnodes | join(',') }}
 
 # role: ethpandaops.general.geth
 geth_container_name: execution
@@ -51,7 +51,7 @@ geth_container_command_extra_args:
   - --http.vhosts=*
   - --networkid={{ ethereum_network_id }}
   - --syncmode=full
-  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
+#  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
 geth_init_custom_network: true
 geth_init_custom_network_genesis_file: "{{ eth_testnet_config_dir }}/genesis.json"
 geth_container_pull: true

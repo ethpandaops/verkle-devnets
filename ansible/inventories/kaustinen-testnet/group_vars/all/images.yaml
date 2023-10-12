@@ -2,7 +2,7 @@ default_ethereum_client_images:
 ### Consensus layer clients
   lodestar: ethpandaops/lodestar:g11tech-verge
 ### Execution layer clients
-  geth: ethpandaops/geth:gballet-kaustinen-with-shapella-2b8427c
+  geth: ethpandaops/geth:kaustinen-with-shapella-fc5410b
 
 default_tooling_images:
   xatu_sentry: ethpandaops/xatu:latest
