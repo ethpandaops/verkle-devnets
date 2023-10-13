@@ -15,7 +15,7 @@
     "terminalTotalDifficulty": 0,
     "terminalTotalDifficultyPassed": true,
     "shanghaiTime": 0,
-    "pragueTime": 1697185860,
+    "pragueTime": 1697190660,
     "proofInBlocks": true
   },
   "alloc": {
@@ -852,5 +852,5 @@
   "nonce": "0x1234",
   "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "timestamp": "1697184960"
+  "timestamp": "1697189760"
 }

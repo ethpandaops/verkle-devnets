@@ -33,6 +33,7 @@
             - "geth"
             - "nethermind"
             - "execution"
+            - "execution-init"
             # Consensus layer clients
             - "lighthouse-validator"
             - "lighthouse"
