@@ -34,7 +34,7 @@ checkpoint_sync_url_kube: https://<path:/secrets/services/services.enc.yaml#ethe
 #  ╚═╝░░╚═╝░╚════╝░╚══════╝╚══════╝  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░
 
 # role: ethpandaops.general.ethereum_genesis
-ethereum_genesis_generator_container_image: parithoshj/ethereum-genesis-generator:3.0.0-rc.10
+ethereum_genesis_generator_container_image: ethpandaops/ethereum-genesis-generator:3.0.0-rc.10
 ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_image.split(':')[-1] }}"
 ethereum_genesis_network_seed: "{{ ansible_inventory_sources[0] }}"
 ethereum_genesis_chain_id: "69420"

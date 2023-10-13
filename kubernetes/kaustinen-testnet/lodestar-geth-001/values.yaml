@@ -46,7 +46,7 @@ lodestar-geth-001:
     fullnameOverride: geth-lodestar-001
     image:
       repository: ethpandaops/geth
-      tag: gballet-kaustinen-with-shapella-2b8427c
+      tag: force-verkle-genesis-f595f90
       pullPolicy: Always
     p2pNodePort:
       enabled: false
@@ -104,7 +104,7 @@ lodestar-geth-001:
           - name: storage
             mountPath: "/data"
       - name: init-genesis
-        image: ethpandaops/geth:gballet-kaustinen-with-shapella-2b8427c
+        image: ethpandaops/geth:force-verkle-genesis-f595f90
         imagePullPolicy: Always
         securityContext:
           runAsNonRoot: false
