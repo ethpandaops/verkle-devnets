@@ -6,5 +6,6 @@ tx_fuzz_txs_container_command:
   - --no-al
   - --rpc=https://{{ secret_nginx_shared_basic_auth.name }}:{{ secret_nginx_shared_basic_auth.password }}@rpc.bootnode-1.srv.kaustinen-testnet.ethpandaops.io
   - --sk={{ tx_fuzz_txs_privkey }}
-
+  - --txcount=2
+  - --accounts=2
 tx_fuzz_container_networks: "{{ docker_networks_shared }}"
