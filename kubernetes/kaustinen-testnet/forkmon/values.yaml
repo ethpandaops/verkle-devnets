@@ -38,7 +38,7 @@ forkmon:
     name: lodestar-geth-7
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-8.srv.kaustinen-testnet.ethpandaops.io
     name: lodestar-geth-8
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-9.srv.kaustinen-testnet.ethpandaops.io
+  - addr: https://eth:g11techisntoneperson@rpc.lodestar-geth-9.srv.kaustinen-testnet.ethpandaops.io
     name: lodestar-geth-9
 
   config: |
