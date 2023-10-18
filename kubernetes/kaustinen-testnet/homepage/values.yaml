@@ -87,7 +87,6 @@ testnet-homepage:
       defaultTheme: dark
       ethereum:
         faucetUrl: https://faucet.kaustinen-testnet.ethpandaops.io
-        faucet2Url: https://faucet-2.kaustinen-testnet.ethpandaops.io
         rpcUrl: https://rpc.kaustinen-testnet.ethpandaops.io
         forkmonUrl: https://forkmon.kaustinen-testnet.ethpandaops.io
         beaconexplorerUrl: https://dora.kaustinen-testnet.ethpandaops.io
@@ -114,10 +113,8 @@ testnet-homepage:
         dataLookup: rpcUrl
       - name: "Dora the Explorer"
         dataLookup: doraUrl
-      - name: "Faucet 1"
+      - name: "Faucet"
         dataLookup: faucetUrl
-      - name: "Faucet 2"
-        dataLookup: faucet2Url
       - name: "Forkmon"
         dataLookup: forkmonUrl
     menu:
