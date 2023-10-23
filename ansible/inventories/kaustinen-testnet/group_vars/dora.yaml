@@ -1,0 +1,19 @@
+
+# role: ethpandaops.general.dora
+dora_hostname: "dora.{{ ethereum_network_name }}.ethpandaops.io"
+dora_container_image: ethpandaops/dora:verkle-support
+dora_container_ports:
+  - "8080:8080"
+dora_container_volumes:
+  - "{{ dora_datadir }}/explorer:/config"
+  - "{{ eth_testnet_config_dir }}:/testnet"
+dora_chain_name: ""
+dora_chain_config: "https://config.{{ ethereum_network_name }}.ethpandaops.io/cl/config.yaml"
+dora_chain_displayname: "{{ ethereum_network_name }}"
+dora_frontend_subtitle: "{{ ethereum_network_name }}"
+dora_beaconapi_endpoint: "http://beacon:5052"
+dora_frontend_validatornames_inventory: "https://config.{{ ethereum_network_name }}.ethpandaops.io/api/v1/nodes/validator-ranges"
+dora_container_env:
+  VIRTUAL_HOST: "{{ dora_hostname }}"
+  VIRTUAL_PORT: "8080"
+  LETSENCRYPT_HOST: "{{ dora_hostname }}"
