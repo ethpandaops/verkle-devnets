@@ -72,6 +72,13 @@
               )
           }}
 
+- name: Install dora
+  hosts: dora
+  become: true
+  roles:
+    - role: ethpandaops.general.dora
+      tags: [dora, explorer]
+
 - hosts: bootnode
   become: true
   roles:
