@@ -1,6 +1,7 @@
 
 # role: ethpandaops.general.dora
 dora_hostname: "dora.{{ ethereum_network_name }}.ethpandaops.io"
+dora_container_image: ethpandaops/dora:verkle-support
 dora_container_ports:
   - "8080:8080"
 dora_container_volumes:
