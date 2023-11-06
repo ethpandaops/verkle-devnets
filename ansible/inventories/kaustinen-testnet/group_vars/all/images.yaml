@@ -1,6 +1,7 @@
 default_ethereum_client_images:
 ### Consensus layer clients
   lodestar: ethpandaops/lodestar:g11tech-verge
+  lighthouse: ethpandaops/lighthouse:verkle-trees-capella-2ffb8a9
 ### Execution layer clients
   geth: ethpandaops/geth:gballet-kaustinen-with-shapella-a45a9f2
 
