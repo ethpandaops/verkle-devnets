@@ -19,4 +19,4 @@ default_tooling_images:
   eth_fauceth: chainflag/eth-faucet:latest
   blobscan: blossomlabs/blobscan:latest
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
-  dora: ethpandaops/dora:verkle-support-692a22a
+  dora: ethpandaops/dora:execution-witness-data-linux-amd64-06ba407
