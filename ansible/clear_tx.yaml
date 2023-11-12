@@ -1,0 +1,12 @@
+---
+
+- name: get rid of txpool
+  hosts: all
+  become: true
+  tasks:
+    - name: stop docker
+      ansible.builtin.shell: docker stop execution
+    - name: rm file
+      ansible.builtin.shell: rm -rf /data/geth/geth/transactions.rlp
+    - name: stop docker
+      ansible.builtin.shell: docker start execution
