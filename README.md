@@ -148,11 +148,11 @@ find . -type d -name "vendor" -prune -o \( -type f \( -name "*.sops.*" -o -name 
 ## Genesis allocation used:
 Here's a table of where the keys are used
 
-| Account Index | Component Used In | Private Key Used | Public Key Used | Comment                                            |
-|---------------|-------------------|------------------|----------------|----------------------------------------------------|
-| 0             | tx_fuzz_txs       | ✅                |                | Spams blobs on the network                         |
-| 1             | faucet1&2         | ✅                |                | manually funded these two due to k8s secrets issue |
-| 2             |                   |                  |                |                                                    |
-| 3             |                   |                  |                |                                                    |
-| 4             |                   |                  |                |                   |
-| 5             |                   |                  |                |                                                    |
+| Account Index | Component Used In    | Private Key Used | Public Key Used | Comment                                            |
+|---------------|----------------------|------------------|----------------|----------------------------------------------------|
+| 0             | tx_fuzz_txs          | ✅                |                | Spams tx on the network                            |
+| 1             | faucet1&2            | ✅                |                | manually funded these two due to k8s secrets issue |
+| 2             | tx_fuzz_txs          |  ✅                |                |                                                    |
+| 3             | tx_fuzz_txs        ✅ |                  |                |                                                    |
+| 4             |                      |                  |                |                                                    |
+| 5             |                      |                  |                |                                                    |
