@@ -6,6 +6,7 @@ blockscout:
   image:
     repository: blockscout/blockscout
     tag: master
+    pullPolicy: IfNotPresent
   podAnnotations:
     "promtail.io/ignore_pod": "true"
   resources:

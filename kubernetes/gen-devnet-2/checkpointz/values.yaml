@@ -7,7 +7,7 @@ checkpointz:
   image:
     repository: ethpandaops/checkpointz
     tag: 0.0.10-dencun-debian
-
+    pullPolicy: IfNotPresent
   resources:
     requests:
       cpu: 64m

@@ -6,6 +6,7 @@ forky:
   image:
     repository: ethpandaops/forky
     tag: latest
+    pullPolicy: Always
   resources:
     requests:
       cpu: 256m

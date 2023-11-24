@@ -22,7 +22,7 @@ lodestar-geth-001:
               - --http.vhosts=*
               - --networkid=69420
               - --syncmode=full
-              - --bootnodes=enode://92d88c3dfd7c33faee24275c66cab625d0856deb38449ec1c3b9d0fecf72781fd839da36a284790820224a7b7762b1d8fce6ae6916fefd1be02fae336ee4d72d@128.140.104.96:30303?discport=30303
+              - --bootnodes=enode://eef762bf3fb06e1bf304bc565d6ce9632b5acc4c98994f64791437e649a09c54885c79dbcc82764912ab89063ab6fcd98bdfbaaea89b423d32b41130ebae1f91@128.140.104.96:30303?discport=30303
               - --rpc.allow-unprotected-txs
               - --cache.preimages
               - --override.prague=1700825700
@@ -33,7 +33,7 @@ lodestar-geth-001:
             lodestar:
               - --paramsFile=/data/network-config/config.yaml
               - --genesisStateFile=/data/network-config/genesis.ssz
-              - --bootnodes=enr:-Iq4QF2WB38aEbYwA-zuXk-yZQgTsLmx7cKe8eJ_7jY4CL_eFzOD694n37UCigxi0obDpK0YVInLNK3bxyjQX_Kfuq-GAYwBEDLMgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQJJ3h8aUO3GJHv-bdvHtsQZ2OEisutelYfGjXO4lSg8BYN1ZHCCIyk,enr:-MS4QH2HVUlyyb-2ducvMQ19ipG399i8xAPx3WyzxkrY65p6IPPedfBxxdueIl0_ODBVF8uK5PlJ84B7JlUjQF24gGUEh2F0dG5ldHOIAAAAGAAAAACEZXRoMpAcSREsUJFwBCChBwAAAAAAgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQIZzof9pompwxw49TNQfWsyYDZJyYyDPuX0RmKVLfs9AohzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --bootnodes=enr:-Iq4QF2WB38aEbYwA-zuXk-yZQgTsLmx7cKe8eJ_7jY4CL_eFzOD694n37UCigxi0obDpK0YVInLNK3bxyjQX_Kfuq-GAYwBEDLMgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQJJ3h8aUO3GJHv-bdvHtsQZ2OEisutelYfGjXO4lSg8BYN1ZHCCIyk,enr:-MS4QLHdsOc7PPv_LXKPW8yKlUbwKVFhtG_fojT5b3uTIeHIW7kayZ0dKnLCZtE9M49Jz2XLtXfBTRcFhkXBgKU0EWcEh2F0dG5ldHOIAAAAAAAADACEZXRoMpAcSREsUJFwBCChBwAAAAAAgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQOojjNeJYwrFPuPKxxkV4XJqgdb1y87k0Y8CTVONNVe4IhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
               - --rest.namespace="*"
               - --network.connectToDiscv5Bootnodes
               - --nat=true
@@ -42,7 +42,7 @@ lodestar-geth-001:
             prysm:
             lighthouse:
               - --testnet-dir=/data/network-config
-              - --boot-nodes=enr:-Iq4QF2WB38aEbYwA-zuXk-yZQgTsLmx7cKe8eJ_7jY4CL_eFzOD694n37UCigxi0obDpK0YVInLNK3bxyjQX_Kfuq-GAYwBEDLMgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQJJ3h8aUO3GJHv-bdvHtsQZ2OEisutelYfGjXO4lSg8BYN1ZHCCIyk,enr:-MS4QH2HVUlyyb-2ducvMQ19ipG399i8xAPx3WyzxkrY65p6IPPedfBxxdueIl0_ODBVF8uK5PlJ84B7JlUjQF24gGUEh2F0dG5ldHOIAAAAGAAAAACEZXRoMpAcSREsUJFwBCChBwAAAAAAgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQIZzof9pompwxw49TNQfWsyYDZJyYyDPuX0RmKVLfs9AohzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --boot-nodes=enr:-Iq4QF2WB38aEbYwA-zuXk-yZQgTsLmx7cKe8eJ_7jY4CL_eFzOD694n37UCigxi0obDpK0YVInLNK3bxyjQX_Kfuq-GAYwBEDLMgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQJJ3h8aUO3GJHv-bdvHtsQZ2OEisutelYfGjXO4lSg8BYN1ZHCCIyk,enr:-MS4QLHdsOc7PPv_LXKPW8yKlUbwKVFhtG_fojT5b3uTIeHIW7kayZ0dKnLCZtE9M49Jz2XLtXfBTRcFhkXBgKU0EWcEh2F0dG5ldHOIAAAAAAAADACEZXRoMpAcSREsUJFwBCChBwAAAAAAgmlkgnY0gmlwhICMaGCJc2VjcDI1NmsxoQOojjNeJYwrFPuPKxxkV4XJqgdb1y87k0Y8CTVONNVe4IhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
               - --debug-level=debug
               - --prune-payloads=false
             nimbus:

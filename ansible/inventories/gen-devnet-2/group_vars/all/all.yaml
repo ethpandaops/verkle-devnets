@@ -9,11 +9,11 @@ network_subdomain: "{{ ethereum_network_name }}.ethpandaops.io"
 server_fqdn: "{{ inventory_hostname }}.srv.{{ network_subdomain }}"
 
 ethereum_network_id: >-
-  {{ (lookup('file', eth_testnet_config_local_dir_src + '/genesis.json') | from_json).config.chainId }}
+  {{ (lookup('file', eth_testnet_config_local_dir_src + 'genesis.json') | from_json).config.chainId }}
 ethereum_network_deposit_contract: >-
-  {{ lookup('file', eth_testnet_config_local_dir_src + '/deposit_contract.txt') }}
+  {{ lookup('file', eth_testnet_config_local_dir_src + 'deposit_contract.txt') }}
 ethereum_network_deposit_contract_block: >-
-  {{ lookup('file', eth_testnet_config_local_dir_src + '/deposit_contract_block.txt') }}
+  {{ lookup('file', eth_testnet_config_local_dir_src + 'deposit_contract_block.txt') }}
 
 ethereum_node_rcp_hostname: "rpc.{{ server_fqdn }}"
 ethereum_node_beacon_hostname: "bn.{{ server_fqdn }}"
@@ -38,7 +38,7 @@ ethereum_genesis_generator_container_image: ethpandaops/ethereum-genesis-generat
 ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_image.split(':')[-1] }}"
 ethereum_genesis_network_seed: "{{ ansible_inventory_sources[0] }}"
 ethereum_genesis_chain_id: "69420"
-ethereum_genesis_generator_output_dir: "../network-configs/{{ ethereum_network_name }}"
+ethereum_genesis_generator_output_dir: "../network-configs/{{ ethereum_network_name | replace(devnet_name + \"-\", '') }}"
 ethereum_genesis_timestamp: "1700825700"
 ethereum_genesis_timedelay: 900
 ethereum_genesis_validator_bls_change_operations_enabled: false

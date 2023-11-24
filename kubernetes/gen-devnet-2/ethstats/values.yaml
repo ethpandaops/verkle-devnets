@@ -6,7 +6,7 @@ ethstats:
   image:
     repository: skylenet/ethstats-server
     tag: poa-no-geoip
-
+    pullPolicy: IfNotPresent
   ingress:
     enabled: true
 

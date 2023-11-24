@@ -6,6 +6,7 @@ eth-faucet:
   image:
     repository: chainflag/eth-faucet
     tag: latest
+    pullPolicy: Always
   ingress:
     enabled: true
 
