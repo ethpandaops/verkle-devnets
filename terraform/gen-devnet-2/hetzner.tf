@@ -153,18 +153,6 @@ resource "cloudflare_record" "server_record" {
     for vm in local.hcloud_vms : "${vm.id}" => vm
   }
   zone_id = data.cloudflare_zone.default.id
-  name    = "${each.value.name}.srv.${var.ethereum_network}"
-  type    = "A"
-  value   = hcloud_server.main[each.value.id].ipv4_address
-  proxied = false
-  ttl     = 120
-}
-
-resource "cloudflare_record" "server_record_short" {
-  for_each = {
-    for vm in local.hcloud_vms : "${vm.id}" => vm
-  }
-  zone_id = data.cloudflare_zone.default.id
   name    = "${each.value.name}.${var.ethereum_network}"
   type    = "A"
   value   = hcloud_server.main[each.value.id].ipv4_address
@@ -192,15 +180,6 @@ resource "cloudflare_record" "server_record_beacon" {
   name    = "bn.${each.value.name}.${var.ethereum_network}"
   type    = "A"
   value   = hcloud_server.main[each.value.id].ipv4_address
-  proxied = false
-  ttl     = 120
-}
-
-resource "cloudflare_record" "dora_cloudflare_record" {
-  zone_id = data.cloudflare_zone.default.id
-  name    = "dora.${var.ethereum_network}"
-  type    = "A"
-  value   = hcloud_server.main["bootnode-1"].ipv4_address
   proxied = false
   ttl     = 120
 }

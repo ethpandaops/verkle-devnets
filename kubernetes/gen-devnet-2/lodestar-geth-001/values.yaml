@@ -10,7 +10,7 @@ lodestar-geth-001:
     checkpointSync:
       enabled: false
       addresses:
-        verkle-gen-devnet-2: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.teku-nethermind-1.srv.verkle-gen-devnet-2.ethpandaops.io
+        verkle-gen-devnet-2: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.teku-nethermind-1.verkle-gen-devnet-2.ethpandaops.io
     clientArgs:
       networks:
         verkle-gen-devnet-2:
