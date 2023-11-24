@@ -55,6 +55,7 @@ lighthouse_container_command_extra_args:
   - --boot-nodes={{ ethereum_cl_bootnodes | join(',') }}
   - --debug-level={{ log_level | default('debug') }}
   - --prune-payloads=false
+  - --reconstruct-historic-states
 
 lighthouse_validator_container_name: validator
 lighthouse_validator_container_volumes:
