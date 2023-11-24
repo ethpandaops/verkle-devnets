@@ -29,6 +29,7 @@ geth_init_custom_network_genesis_file: "{{ eth_testnet_config_dir }}/genesis.jso
 geth_container_pull: true
 geth_init_custom_network_container_command:
   - --datadir=/data
-  - init
+  - --override.prague={{ ethereum_genesis_timestamp }}
   - --cache.preimages
+  - init
   - /genesis.json
