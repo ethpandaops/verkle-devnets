@@ -233,5 +233,5 @@ resource "local_file" "ansible_inventory" {
       )
     }
   )
-  filename = "../../ansible/inventories/kaustinen-testnet/inventory.ini"
+  filename = "../../ansible/inventories/kaustinen-devnet-2/inventory.ini"
 }

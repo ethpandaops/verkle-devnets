@@ -12,9 +12,9 @@ variable "bootnode" {
 variable "lighthouse_geth" {
   default = {
     name            = "lighthouse-geth"
-    count           = 0
-    validator_start = 0
-    validator_end   = 0
+    count           = 1
+    validator_start = 900
+    validator_end   = 1000
   }
 }
 
@@ -122,9 +122,9 @@ variable "prysm_reth" {
 variable "lodestar_geth" {
   default = {
     name            = "lodestar-geth"
-    count           = 10
+    count           = 9
     validator_start = 0
-    validator_end   = 1000
+    validator_end   = 900
   }
 }
 

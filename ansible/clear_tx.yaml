@@ -8,5 +8,5 @@
       ansible.builtin.shell: docker stop execution
     - name: rm file
       ansible.builtin.shell: rm -rf /data/geth/geth/transactions.rlp
-    - name: stop docker
+    - name: start docker
       ansible.builtin.shell: docker start execution
