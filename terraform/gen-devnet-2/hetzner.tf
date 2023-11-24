@@ -233,5 +233,5 @@ resource "local_file" "ansible_inventory" {
       )
     }
   )
-  filename = "../../ansible/inventories/verkle-gen-devnet-2/inventory.ini"
+  filename = "../../ansible/inventories/gen-devnet-2/inventory.ini"
 }
