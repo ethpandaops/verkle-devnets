@@ -18,27 +18,27 @@ forkmon:
   # Rpc
   - addr: http://geth-lodestar-001:8545
     name: rpc-lodestar-geth-001
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.bootnode-1.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.bootnode-1.verkle-gen-devnet-2.ethpandaops.io
     name: bootnode-1
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-1.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lighthouse-geth-1.verkle-gen-devnet-2.ethpandaops.io
+    name: lighthouse-geth-1
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-1.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-1
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-10.srv.verkle-gen-devnet-2.ethpandaops.io
-    name: lodestar-geth-10
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-2.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-2.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-2
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-3.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-3.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-3
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-4.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-4.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-4
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-5.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-5.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-5
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-6.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-6.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-6
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-7.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-7.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-7
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-8.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-8.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-8
-  - addr: https://eth:g11techisntoneperson@rpc.lodestar-geth-9.srv.verkle-gen-devnet-2.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@rpc.lodestar-geth-9.verkle-gen-devnet-2.ethpandaops.io
     name: lodestar-geth-9
 
   config: |

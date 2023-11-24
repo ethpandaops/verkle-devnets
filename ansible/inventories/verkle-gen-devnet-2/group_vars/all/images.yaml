@@ -21,3 +21,5 @@ default_tooling_images:
   blobscan: blossomlabs/blobscan:latest
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
   dora: ethpandaops/dora:electra-support
+  dugtrio: ethpandaops/dugtrio:latest
+  powfaucet: pk910/powfaucet:v2-stable

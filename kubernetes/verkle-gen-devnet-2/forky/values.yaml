@@ -1,0 +1,97 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/forky.yaml.j2
+
+forky:
+  fullnameOverride: forky
+  replicas: 1
+  image:
+    repository: ethpandaops/forky
+    tag: latest
+  resources:
+    requests:
+      cpu: 256m
+      memory: 512Mi
+  ingress:
+    enabled: true
+    className: ingress-nginx-public
+    hosts:
+      - host: forky.verkle-gen-devnet-2.ethpandaops.io
+        paths:
+          - path: /
+            pathType: Prefix
+  config:
+    listen_addr: ":5555"
+    pprof_addr: ":6060"
+    log_level: "debug"
+    metrics:
+      addr: ":9090"
+      enabled: true
+    forky:
+      retention_period: "1m"
+      store:
+        type: memory
+      indexer:
+        dsn: "file::memory:?cache=shared"
+        driver_name: sqlite
+      ethereum:
+        network:
+          name: "verkle-gen-devnet-2"
+          spec:
+            seconds_per_slot: 12
+            slots_per_epoch: 32
+            genesis_time: 1700826600
+      sources:
+        - name: bootnode-1
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.bootnode-1.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lighthouse-geth-1
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lighthouse-geth-1.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-1
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-1.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-2
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-2.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-3
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-3.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-4
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-4.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-5
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-5.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-6
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-6.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-7
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-7.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-8
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-8.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
+        - name: lodestar-geth-9
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.template-devnets.node_ingress.combined}>@bn.lodestar-geth-9.verkle-gen-devnet-2.ethpandaops.io
+            polling_interval: "12s"
