@@ -47,6 +47,8 @@ blockscout:
     BLOCK_TRANSFORMER: base
     POOL_SIZE: "15"
     CHAIN_SPEC_PATH: /config-update/chainspec.json
+    INDEXER_INTERNAL_TRANSACTIONS_BATCH_SIZE: "1"
+    INDEXER_INTERNAL_TRANSACTIONS_CONCURRENCY: "1"
   extraVolumes:
     - name: config-update
       emptyDir: {}

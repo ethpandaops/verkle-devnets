@@ -18,6 +18,22 @@ ethereum_node_el: geth
 ethereum_node_cl: lodestar
 ethereum_node_cl_validator_enabled: false
 
+# role: ethpandaops.general.bootstrap
+bootstrap_default_user_authorized_keys_github_team_el:
+  - mariusVanDerWijden
+  - holiman
+  - karalabe
+  - g11tech
+  - gballet
+
+bootstrap_default_user_authorized_keys_github_team_cl:
+  - dapplion
+  - wemeetagain
+  - tuyennhv
+  - g11tech
+  - philknows
+  - nazarhussain
+
 # role: ethpandaops.general.lodestar
 lodestar_container_name: beacon
 lodestar_container_image: "{{ default_ethereum_client_images.lodestar }}"

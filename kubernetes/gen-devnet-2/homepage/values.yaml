@@ -126,10 +126,6 @@ testnet-homepage:
         dataLookup: doraUrl
       - name: "Beaconchain explorer (not working)"
         dataLookup: "beaconexplorerUrl"
-      - name: "Blobscan"
-        dataLookup: blobscanUrl
-      - name: "Blobscan ethpanda edition"
-        dataLookup: blobscanethpandaUrl
       - name: "Checkpoint Sync"
         dataLookup: checkpointSyncUrl
       - name: "Faucet 1"
