@@ -32,6 +32,7 @@ powfaucet:
   faucetPrivkey: "<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.faucet_private_key}>"
   faucetRpcUrl: "http://geth-lodestar-001:8545"
   faucetExplorerLink: "https://explorer.verkle-gen-devnet-2.ethpandaops.io/tx/{txid}"
+  faucetTxGasLimit: 100000
 
   faucetCaptchaEnabled: true
   faucetCaptchaSitekey: "<path:/secrets/services/services.enc.yaml#hcaptcha | jsonPath {.site_key}>"
