@@ -30,6 +30,10 @@ dora:
   postgresql:
     name: "dora-postgresql"
     fullnameOverride: "dora-postgresql"
+
+  extraEnv:
+  - name: FRONTEND_PPROF
+    value: "true"
   
   endpoints:
   # Rpc
