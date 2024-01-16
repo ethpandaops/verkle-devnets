@@ -19,17 +19,14 @@ geth_container_command_extra_args:
   - --holesky
   - --http.api=eth,net,web3,debug,admin,personal
   - --http.vhosts=*
-  #- --networkid={{ ethereum_network_id }}
-  - --syncmode=full
-  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
+#  - --networkid={{ ethereum_network_id }}
+#  - --syncmode=full
+#  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
   - --rpc.allow-unprotected-txs
   - --cache.preimages
+#  - --override.prague=1705071996
+#  - --override.overlay-stride=50000
+#  - --override.blockproof=true
+#  - --clear.verkle.costs=true
 geth_init_custom_network: false
-geth_init_custom_network_genesis_file: "{{ eth_testnet_config_dir }}/genesis.json"
 geth_container_pull: true
-geth_init_custom_network_container_command:
-  - --datadir=/data
-  - --override.prague={{ ethereum_genesis_timestamp }}
-  - --cache.preimages
-  - init
-  - /genesis.json

@@ -1,0 +1,48 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/dora.yaml.j2
+
+dora:
+  fullnameOverride: dora
+  image:
+    repository: ethpandaops/dora
+    tag: electra-support
+    pullPolicy: Always
+  ingress:
+    enabled: true
+    className: ingress-nginx-public
+    hosts:
+      - host: dora.verkle-hsf-0.ethpandaops.io
+        paths:
+          - path: /
+            pathType: Prefix
+
+  name: verkle-hsf-0
+  configPath: "https://config.verkle-hsf-0.ethpandaops.io/cl/config.yaml"
+  validatorNamesInventory: "https://config.verkle-hsf-0.ethpandaops.io/api/v1/nodes/validator-ranges"
+
+  postgresql:
+    name: "dora-postgresql"
+    fullnameOverride: "dora-postgresql"
+  
+  endpoints:
+  # Rpc
+  - url: http://lodestar-geth-001:5052
+    name: rpc-lodestar-geth-001
+    archive: true
+    priority: 1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.bootnode-1.srv.verkle-hsf-0.ethpandaops.io
+    name: bootnode-1
+    priority: -1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.lighthouse-geth-1.srv.verkle-hsf-0.ethpandaops.io
+    name: lighthouse-geth-1
+    priority: -1
+    archive: true
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.lighthouse-geth-2.srv.verkle-hsf-0.ethpandaops.io
+    name: lighthouse-geth-2
+    priority: -1
+    archive: true
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.lodestar-geth-1.srv.verkle-hsf-0.ethpandaops.io
+    name: lodestar-geth-1
+    priority: -1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.lodestar-geth-2.srv.verkle-hsf-0.ethpandaops.io
+    name: lodestar-geth-2
+    priority: -1
