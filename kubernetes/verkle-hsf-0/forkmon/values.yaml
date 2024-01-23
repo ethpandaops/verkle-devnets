@@ -16,15 +16,15 @@ forkmon:
   network: verkle-hsf-0
   endpoints:
   # Rpc
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.bootnode-1.srv.verkle-hsf-0.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.bootnode-1.verkle-hsf-0.ethpandaops.io
     name: bootnode-1
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lighthouse-geth-1.srv.verkle-hsf-0.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lighthouse-geth-1.verkle-hsf-0.ethpandaops.io
     name: lighthouse-geth-1
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lighthouse-geth-2.srv.verkle-hsf-0.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lighthouse-geth-2.verkle-hsf-0.ethpandaops.io
     name: lighthouse-geth-2
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-1.srv.verkle-hsf-0.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-1.verkle-hsf-0.ethpandaops.io
     name: lodestar-geth-1
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-2.srv.verkle-hsf-0.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-2.verkle-hsf-0.ethpandaops.io
     name: lodestar-geth-2
 
   config: |
