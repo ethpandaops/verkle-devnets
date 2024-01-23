@@ -3,6 +3,11 @@
     - role: ethpandaops.general.beacon_stopper
       tags: [script, beacon_stopper]
 
+- hosts: all
+  become: true
+  roles:
+    - role: ethpandaops.general.geth
+      tags: [node]
 
 - hosts: all,!localhost
   serial: "{{ batch_count | default('100%') }}"

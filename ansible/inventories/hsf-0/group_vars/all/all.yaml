@@ -23,7 +23,7 @@ ethstats_secret: "{{ secret_ethstats }}"
 
 ### Checkpoint sync specific for Ansible & Kubernetes
 checkpoint_sync_node: teku-nethermind-1
-checkpoint_sync_enabled: true
+checkpoint_sync_enabled: false
 checkpoint_sync_url: https://checkpoint-sync.holesky.ethpandaops.io
 checkpoint_sync_url_kube: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.{{ checkpoint_sync_node }}.{{ ethereum_network_name }}.ethpandaops.io
 #  ██████╗░░█████╗░██╗░░░░░███████╗  ██╗░░░██╗░█████╗░██████╗░░██████╗
@@ -33,11 +33,11 @@ checkpoint_sync_url_kube: https://<path:/secrets/services/services.enc.yaml#ethe
 #  ██║░░██║╚█████╔╝███████╗███████╗  ░░╚██╔╝░░██║░░██║██║░░██║██████╔╝
 #  ╚═╝░░╚═╝░╚════╝░╚══════╝╚══════╝  ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░
 #### Beacon stopper
-slot_to_stop_at:  786420
+slot_to_stop_at:  841305
 beacon_url: http://localhost:5052/eth/v1/beacon/headers
 
 #### Enable validators
-ethereum_node_cl_validator_enabled: false
+ethereum_node_cl_validator_enabled: true
 
 # role: ethpandaops.general.ethereum_genesis
 ethereum_genesis_generator_container_image: ethpandaops/ethereum-genesis-generator:3.0.0-rc.16
@@ -45,7 +45,7 @@ ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_ima
 ethereum_genesis_network_seed: "{{ ansible_inventory_sources[0] }}"
 ethereum_genesis_chain_id: "17000"
 ethereum_genesis_generator_output_dir: "../network-configs/{{ ethereum_network_name | replace(devnet_name + \"-\", '') }}"
-ethereum_genesis_timestamp: "1705070400"
+ethereum_genesis_timestamp: "1706016600"
 ethereum_genesis_timedelay: 60
 ethereum_genesis_validator_bls_change_operations_enabled: false
 ethereum_genesis_timestamp_relative_cmd:

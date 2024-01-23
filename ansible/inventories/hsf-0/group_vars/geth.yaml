@@ -16,17 +16,17 @@ geth_container_env:
   VIRTUAL_PORT: "{{ ethereum_node_el_ports_http_rpc | string }}"
   LETSENCRYPT_HOST: "{{ ethereum_node_rcp_hostname }}"
 geth_container_command_extra_args:
-  - --holesky
+#  - --holesky
   - --http.api=eth,net,web3,debug,admin,personal
   - --http.vhosts=*
-#  - --networkid={{ ethereum_network_id }}
-#  - --syncmode=full
-#  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
+  - --networkid={{ ethereum_network_id }}
+  - --syncmode=full
+  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
   - --rpc.allow-unprotected-txs
   - --cache.preimages
-#  - --override.prague=1705071996
-#  - --override.overlay-stride=50000
-#  - --override.blockproof=true
-#  - --clear.verkle.costs=true
+  - --override.prague=1706018196
+  - --override.overlay-stride=10000
+  - --override.blockproof=true
+  - --clear.verkle.costs=true
 geth_init_custom_network: false
 geth_container_pull: true

@@ -3,7 +3,7 @@ default_ethereum_client_images:
   lodestar: ethpandaops/lodestar:g11tech-verge-815364b
   lighthouse: ethpandaops/lighthouse:verkle-trees-capella-2ffb8a9
 ### Execution layer clients
-  geth: ethpandaops/geth:master
+  geth: ethpandaops/geth:verkle-costs-activation-switch-cebbd4f
 
 default_tooling_images:
   xatu_sentry: ethpandaops/xatu:latest

@@ -51,9 +51,9 @@ lighthouse_container_volumes:
 #  - --testnet-dir=/network-config
 #  - --network=goerli
 lighthouse_container_command_extra_args:
-  - --network=holesky
-#  - --testnet-dir=/network-config
-#  - --boot-nodes={{ ethereum_cl_bootnodes | join(',') }}
+#  - --network=holesky
+  - --testnet-dir=/network-config
+  - --boot-nodes={{ ethereum_cl_bootnodes | join(',') }}
   - --debug-level={{ log_level | default('info') }}
   - --prune-payloads=false
   - --reconstruct-historic-states
