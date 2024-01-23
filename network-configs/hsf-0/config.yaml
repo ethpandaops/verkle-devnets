@@ -8,7 +8,7 @@ CONFIG_NAME: testnet # needs to exist because of Prysm. Otherwise it conflicts w
 MIN_GENESIS_ACTIVE_VALIDATOR_COUNT: 96
 # Mar-01-2021 08:53:32 AM +UTC
 # This is an invalid valid and should be updated when you create the genesis
-MIN_GENESIS_TIME: 1706016600
+MIN_GENESIS_TIME: 1706024100
 GENESIS_FORK_VERSION: 0x10696633
 GENESIS_DELAY: 60
 
@@ -39,7 +39,7 @@ DENEB_FORK_EPOCH: 500000
 
 # Electra
 ELECTRA_FORK_VERSION: 0x60696633
-ELECTRA_FORK_EPOCH: 4
+ELECTRA_FORK_EPOCH: 2
 
 # Time parameters
 # ---------------------------------------------------------------

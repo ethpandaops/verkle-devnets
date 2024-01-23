@@ -6,6 +6,27 @@
 - hosts: all
   become: true
   roles:
+    - role: state_fetcher
+      tags: [state_fetcher]
+
+# Unpacks the state, will not run if the folder already has pre-existing state in it
+# Note: this tag assumes the state has already been fetched, please ensure that the state_fetcher
+# has been given enough time to complete
+- hosts: all
+  become: true
+  tags: [state_unpack]
+  tasks:
+    - name: unpack state
+      unarchive:
+        src: "{{ state_fetcher_datadir }}/{{ state_fetcher_s3_key }}"
+        dest: "{{ state_fetcher_unpack_dir }}"
+        creates: "{{ state_fetcher_unpack_dir }}/{{ ethereum_node_el }}"
+        remote_src: yes
+        extra_opts: [--strip-components=1]
+
+- hosts: all
+  become: true
+  roles:
     - role: ethpandaops.general.geth
       tags: [node]
 

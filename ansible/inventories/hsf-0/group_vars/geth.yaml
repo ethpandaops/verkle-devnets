@@ -24,7 +24,7 @@ geth_container_command_extra_args:
   - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
   - --rpc.allow-unprotected-txs
   - --cache.preimages
-  - --override.prague=1706018196
+  - --override.prague=1706024928
   - --override.overlay-stride=10000
   - --override.blockproof=true
   - --clear.verkle.costs=true

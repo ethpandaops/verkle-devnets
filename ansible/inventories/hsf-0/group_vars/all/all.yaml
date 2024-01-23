@@ -35,6 +35,12 @@ checkpoint_sync_url_kube: https://<path:/secrets/services/services.enc.yaml#ethe
 #### Beacon stopper
 slot_to_stop_at:  841305
 beacon_url: http://localhost:5052/eth/v1/beacon/headers
+#### State fetcher
+state_fetcher_datadir: /data/
+state_fetcher_unpack_dir: /data/geth
+state_fetcher_s3_key: "geth.tar.gz"
+state_fetcher_s3_bucket: https://holesky-shadowfork.fra1.digitaloceanspaces.com
+state_fetcher_s3_url: "{{ state_fetcher_s3_bucket }}/{{ state_fetcher_s3_key}}"
 
 #### Enable validators
 ethereum_node_cl_validator_enabled: true
@@ -45,7 +51,7 @@ ethereum_genesis_generator_version: "{{ ethereum_genesis_generator_container_ima
 ethereum_genesis_network_seed: "{{ ansible_inventory_sources[0] }}"
 ethereum_genesis_chain_id: "17000"
 ethereum_genesis_generator_output_dir: "../network-configs/{{ ethereum_network_name | replace(devnet_name + \"-\", '') }}"
-ethereum_genesis_timestamp: "1706016600"
+ethereum_genesis_timestamp: "1706024100"
 ethereum_genesis_timedelay: 60
 ethereum_genesis_validator_bls_change_operations_enabled: false
 ethereum_genesis_timestamp_relative_cmd:
@@ -70,7 +76,7 @@ ethereum_genesis_generator_config_files:
     export DENEB_FORK_VERSION="0x50{{ ethereum_genesis_fork_version_suffix }}"
     export DENEB_FORK_EPOCH="500000"
     export ELECTRA_FORK_VERSION="0x60{{ ethereum_genesis_fork_version_suffix }}"
-    export ELECTRA_FORK_EPOCH="4"
+    export ELECTRA_FORK_EPOCH="2"
     export WITHDRAWAL_TYPE="0x00"
     export WITHDRAWAL_ADDRESS={{ ethereum_genesis_validator_bls_change_execution_address }}
     export BEACON_STATIC_ENR=""
