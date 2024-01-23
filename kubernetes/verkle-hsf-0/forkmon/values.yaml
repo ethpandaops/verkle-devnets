@@ -22,7 +22,7 @@ forkmon:
     name: lodestar-geth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lighthouse-geth-2.verkle-hsf-0.ethpandaops.io
     name: lodestar-geth-2
-  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lodestar-geth-3.verkle-hsf-0.ethpandaops.io
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@rpc.lighthouse-geth-3.verkle-hsf-0.ethpandaops.io
     name: lodestar-geth-3
 
   config: |
