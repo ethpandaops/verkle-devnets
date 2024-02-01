@@ -63,14 +63,14 @@ geth_container_command_extra_args:
 #  - --holesky
   - --http.api=eth,net,web3,debug,admin
   - --http.vhosts=*
-  - --networkid={{ ethereum_network_id }}
   - --syncmode=full
 #  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
   - --cache.preimages
-  - --override.prague=1706024928
+  - --override.prague=1706285288
   - --override.overlay-stride=10000
   - --override.blockproof=true
   - --clear.verkle.costs=true
+  - --networkid={{ ethereum_network_id }}
 geth_init_custom_network: false
 geth_container_pull: true
 

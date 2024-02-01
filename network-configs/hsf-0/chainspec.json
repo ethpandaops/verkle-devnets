@@ -51,7 +51,7 @@
     "eip1153TransitionTimestamp": "0x671a97b70e0",
     "eip5656TransitionTimestamp": "0x671a97b70e0",
     "eip6780TransitionTimestamp": "0x671a97b70e0",
-    "eip6800TransitionTimestamp": "0x65afdfe0"
+    "eip6800TransitionTimestamp": "0x65b3d8e8"
   },
   "genesis": {
     "seal": {
