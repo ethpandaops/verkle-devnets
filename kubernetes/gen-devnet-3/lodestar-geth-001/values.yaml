@@ -91,7 +91,6 @@ lodestar-geth-001:
             GENESIS_URI=https://config.verkle-gen-devnet-3.ethpandaops.io/el/genesis.json;
             BESU_GENESIS_URI=https://config.verkle-gen-devnet-3.ethpandaops.io/el/besu.json;
             BOOTNODES_URI=https://config.verkle-gen-devnet-3.ethpandaops.io/el/bootnodes.txt;
-            TRUSTED_SETUP_URI=https://config.verkle-gen-devnet-3.ethpandaops.io/trusted_setup.txt;
             mkdir -p /data/network-config;
             if ! [ -f /data/network_config_init_done ];
             then
@@ -100,7 +99,6 @@ lodestar-geth-001:
               wget -O /data/network-config/genesis.json $GENESIS_URI;
               wget -O /data/network-config/besu.json $BESU_GENESIS_URI;
               wget -O /data/network-config/bootnodes.txt $BOOTNODES_URI;
-              wget -O /data/network-config/trusted_setup.txt $TRUSTED_SETUP_URI;
               cat /data/network-config/genesis.json | jq -r '.config.chainId' > /data/network-config/chainid.txt;
               touch /data/network_config_init_done;
               echo "network config init done";
@@ -180,7 +178,6 @@ lodestar-geth-001:
           GENESIS_SSZ_URI=https://config.verkle-gen-devnet-3.ethpandaops.io/cl/genesis.ssz;
           mkdir -p /data/network-config;
           curl -s https://config.verkle-gen-devnet-3.ethpandaops.io/api/v1/nodes/inventory | jq -r '.ethereum_pairs[] | .consensus.enr' > /data/network-config/bootnodes.txt;
-          TRUSTED_SETUP_URI=https://config.verkle-gen-devnet-3.ethpandaops.io/trusted_setup.txt;
           if ! [ -f /data/network-config/genesis.ssz ];
           then
             wget -O /data/network-config/deposit_contract.txt $DEPOSIT_CONTRACT_URI;
@@ -188,7 +185,6 @@ lodestar-geth-001:
             wget -O /data/network-config/deploy_block.txt $DEPLOY_BLOCK_URI;
             wget -O /data/network-config/config.yaml $GENESIS_CONFIG_URI;
             wget -O /data/network-config/genesis.ssz $GENESIS_SSZ_URI;
-            wget -O /data/network-config/trusted_setup.txt $TRUSTED_SETUP_URI;
             echo "genesis init done";
           else
             echo "genesis exists. skipping...";
