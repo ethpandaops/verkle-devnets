@@ -20,6 +20,6 @@ default_tooling_images:
   eth_fauceth: chainflag/eth-faucet:latest
   blobscan: blossomlabs/blobscan:latest
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
-  dora: ethpandaops/dora:electra-support
+  dora: ethpandaops/dora:verkle-support-latest
   dugtrio: ethpandaops/dugtrio:latest
   powfaucet: pk910/powfaucet:v2-stable
