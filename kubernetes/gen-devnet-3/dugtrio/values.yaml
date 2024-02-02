@@ -1,0 +1,55 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/dugtrio.yaml.j2
+
+dugtrio:
+  fullnameOverride: dugtrio
+  image:
+    repository: ethpandaops/dugtrio
+    tag: latest
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 100m
+      memory: 200Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
+  ingress:
+    enabled: true
+    className: ingress-nginx-public
+    hosts:
+      - host: beacon.verkle-gen-devnet-3.ethpandaops.io
+        paths:
+          - path: /
+            pathType: Prefix
+
+  dugtrioFrontendTitle: "Dugtrio: verkle-gen-devnet-3"
+  dugtrioProxyCount: 2
+  dugtrioProxyBlockedPaths:
+    - "^/teku/v[0-9]+/admin/.*"
+
+  endpoints:
+  # Rpc
+  - url: http://lodestar-geth-001:5052
+    name: rpc-lodestar-geth-001
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.bootnode-1.verkle-gen-devnet-3.ethpandaops.io
+    name: bootnode-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lighthouse-geth-1.verkle-gen-devnet-3.ethpandaops.io
+    name: lighthouse-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-1.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-2.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-3.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-3
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-4.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-4
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-5.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-5
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-6.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-6
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-7.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-7
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-8.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-8
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-9.verkle-gen-devnet-3.ethpandaops.io
+    name: lodestar-geth-9
