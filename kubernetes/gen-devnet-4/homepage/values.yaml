@@ -96,7 +96,7 @@ testnet-homepage:
         forkmonUrl: https://forkmon.verkle-gen-devnet-4.ethpandaops.io
         beaconexplorerUrl: "https://verkle-gen-devnet-4.beaconcha.in"
         doraUrl: https://dora.verkle-gen-devnet-4.ethpandaops.io
-        checkpointSyncUrl: "https://checkpoint-sync.verkle-gen-devnet-4.ethpandaops.io"
+        checkpointSyncUrl: "https://eth:g11techisntoneperson@bn.lodestar-geth-9.verkle-gen-devnet-4.ethpandaops.io"
         blobscanUrl: https://blobscan.com
         blobscanethpandaUrl: https://blobscan.verkle-gen-devnet-4.ethpandaops.io
         ethstatsUrl: https://ethstats.verkle-gen-devnet-4.ethpandaops.io
