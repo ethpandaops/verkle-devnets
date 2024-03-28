@@ -1,0 +1,197 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/ethereum-node.yaml.j2
+
+lodestar-geth-001:
+  global:
+    main:
+      network: verkle-gen-devnet-4
+      engineEndpoint: http://geth-lodestar-001:8551
+      rpcEndpoint: http://geth-lodestar-001:8545
+      beaconEndpoint: http://lodestar-geth-001:5052
+    checkpointSync:
+      enabled: false
+      addresses:
+        verkle-gen-devnet-4: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.dencun-devnets.node_ingress.combined}>@bn.teku-nethermind-1.verkle-gen-devnet-4.ethpandaops.io
+    clientArgs:
+      networks:
+        verkle-gen-devnet-4:
+          execution:
+            besu:
+            nethermind:
+            geth:
+              - --http.api=eth,net,web3,debug,admin,personal
+              - --http.vhosts=*
+              - --networkid=69420
+              - --syncmode=full
+              - --bootnodes=enode://0f08a9f7087b7a71fd818679d7d847e68c1566f8838e1be6c6baa2203f33365cd3d0152dc97618c2de1fb05a8cae9b01fb28334c31caa48e7fa6a8c7d74df14c@195.201.36.62:30303?discport=30303
+              - --rpc.allow-unprotected-txs
+              - --cache.preimages
+              - --override.prague=1707215340
+              - --rpc.allow-unprotected-txs
+            erigon:
+            ethereumjs:
+          consensus:
+            lodestar:
+              - --paramsFile=/data/network-config/config.yaml
+              - --genesisStateFile=/data/network-config/genesis.ssz
+              - --bootnodes=enr:-Iq4QECFXCogKf4EQkygLrvBWuLRuTo4bOCvmw2vDCafpyLRMAP4xwCzR66Kk1k6pT7kaT518AueRV05psXor_2lNGuGAY192AD8gmlkgnY0gmlwhMPJJD6Jc2VjcDI1NmsxoQJJ3h8aUO3GJHv-bdvHtsQZ2OEisutelYfGjXO4lSg8BYN1ZHCCIyk,enr:-MS4QDCnP3JP8xwHJxZDUM_WM8vpkDN7gG9SV1rzXOkj2TsaTHsKdkTAPLmj1X4M1hj5prRFezUbbJK1zIf82l-UNysEh2F0dG5ldHOIAAAAAAAAAwCEZXRoMpBb0V1QUDJYSCChBwAAAAAAgmlkgnY0gmlwhMPJJD6Jc2VjcDI1NmsxoQNw2_G4eXfA1YgekuZtmsTGoguK1cdTfhNWRNBQO8ZlLohzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --rest.namespace="*"
+              - --network.connectToDiscv5Bootnodes
+              - --nat=true
+            teku:
+              - --Xepochs-store-blobs=max # Keep the blobs forever
+            prysm:
+            lighthouse:
+              - --testnet-dir=/data/network-config
+              - --boot-nodes=enr:-Iq4QECFXCogKf4EQkygLrvBWuLRuTo4bOCvmw2vDCafpyLRMAP4xwCzR66Kk1k6pT7kaT518AueRV05psXor_2lNGuGAY192AD8gmlkgnY0gmlwhMPJJD6Jc2VjcDI1NmsxoQJJ3h8aUO3GJHv-bdvHtsQZ2OEisutelYfGjXO4lSg8BYN1ZHCCIyk,enr:-MS4QDCnP3JP8xwHJxZDUM_WM8vpkDN7gG9SV1rzXOkj2TsaTHsKdkTAPLmj1X4M1hj5prRFezUbbJK1zIf82l-UNysEh2F0dG5ldHOIAAAAAAAAAwCEZXRoMpBb0V1QUDJYSCChBwAAAAAAgmlkgnY0gmlwhMPJJD6Jc2VjcDI1NmsxoQNw2_G4eXfA1YgekuZtmsTGoguK1cdTfhNWRNBQO8ZlLohzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --debug-level=debug
+              - --prune-payloads=false
+              - --reconstruct-historic-states
+            nimbus:
+
+
+  geth:
+    enabled: true
+    fullnameOverride: geth-lodestar-001
+    image:
+      repository: ethpandaops/geth
+      tag: kaustinen-with-shapella-0b110bd
+      pullPolicy: Always
+    p2pNodePort:
+      enabled: false
+    persistence:
+      enabled: true
+      size: 100Gi
+    podLabels:
+      network: verkle-gen-devnet-4
+      testnet: verkle-gen-devnet-4
+      ethereum_network: verkle-gen-devnet-4
+      ethereum_role: execution
+      consensus_client: lodestar
+      execution_client: geth
+      ethereum_instance: geth-lodestar-001
+    resources:
+      requests:
+        cpu: 2000m
+        memory: 5Gi
+      limits:
+        cpu: 3000m
+        memory: 7Gi
+    initContainers:
+      - name: init-config
+        image: alpine:latest
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          runAsNonRoot: false
+          runAsUser: 0
+        command:
+          - sh
+          - -ace
+          - >
+            CHAINSPEC_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/el/chainspec.json;
+            GENESIS_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/el/genesis.json;
+            BESU_GENESIS_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/el/besu.json;
+            BOOTNODES_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/el/bootnodes.txt;
+            mkdir -p /data/network-config;
+            if ! [ -f /data/network_config_init_done ];
+            then
+              apk update && apk add curl jq;
+              wget -O /data/network-config/chainspec.json $CHAINSPEC_URI;
+              wget -O /data/network-config/genesis.json $GENESIS_URI;
+              wget -O /data/network-config/besu.json $BESU_GENESIS_URI;
+              wget -O /data/network-config/bootnodes.txt $BOOTNODES_URI;
+              cat /data/network-config/genesis.json | jq -r '.config.chainId' > /data/network-config/chainid.txt;
+              touch /data/network_config_init_done;
+              echo "network config init done";
+            else
+              echo "network config already present";
+            fi;
+            echo "bootnode init done: $(cat /data/network-config/bootnodes.txt)";
+        volumeMounts:
+          - name: storage
+            mountPath: "/data"
+      - name: init-genesis
+        image: ethpandaops/geth:kaustinen-with-shapella-0b110bd
+        imagePullPolicy: Always
+        securityContext:
+          runAsNonRoot: false
+          runAsUser: 0
+        command:
+          - sh
+          - -ace
+          - >
+            if ! [ -f /data/genesis_init_done ];
+            then
+              geth --datadir /data --override.prague=1707215340 --cache.preimages init /data/network-config/genesis.json;
+              touch /data/genesis_init_done;
+              echo "genesis init done";
+            else
+              echo "genesis is already initialized";
+            fi;
+        volumeMounts:
+          - name: storage
+            mountPath: "/data"
+
+  lodestar:
+    enabled: true
+    fullnameOverride: lodestar-geth-001
+    image:
+      repository: ethpandaops/lodestar
+      tag: g11tech-verge-815364b
+      pullPolicy: Always
+    mode: "beacon"
+    p2pNodePort:
+      enabled: false
+    podLabels:
+      network: verkle-gen-devnet-4
+      testnet: verkle-gen-devnet-4
+      ethereum_network: verkle-gen-devnet-4
+      ethereum_role: consensus
+      consensus_client: lodestar
+      execution_client: geth
+      ethereum_instance: lodestar-geth-001
+    resources:
+      requests:
+        cpu: 2000m
+        memory: 5Gi
+      limits:
+        cpu: 3000m
+        memory: 7Gi
+    persistence:
+      enabled: true
+      size: 200Gi
+    initContainers:
+    - name: init-genesis
+      image: alpine:latest
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        runAsNonRoot: false
+        runAsUser: 0
+      command:
+        - sh
+        - -ace
+        - >
+          apk add jq curl sed;
+          DEPOSIT_CONTRACT_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/deposit_contract.txt;
+          DEPOSIT_CONTRACT_BLOCK_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/cl/deposit_contract_block.txt;
+          DEPLOY_BLOCK_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/cl/deploy_block.txt;
+          GENESIS_CONFIG_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/cl/config.yaml;
+          GENESIS_SSZ_URI=https://config.verkle-gen-devnet-4.ethpandaops.io/cl/genesis.ssz;
+          mkdir -p /data/network-config;
+          curl -s https://config.verkle-gen-devnet-4.ethpandaops.io/api/v1/nodes/inventory | jq -r '.ethereum_pairs[] | .consensus.enr' > /data/network-config/bootnodes.txt;
+          if ! [ -f /data/network-config/genesis.ssz ];
+          then
+            wget -O /data/network-config/deposit_contract.txt $DEPOSIT_CONTRACT_URI;
+            wget -O /data/network-config/deposit_contract_block.txt $DEPOSIT_CONTRACT_BLOCK_URI;
+            wget -O /data/network-config/deploy_block.txt $DEPLOY_BLOCK_URI;
+            wget -O /data/network-config/config.yaml $GENESIS_CONFIG_URI;
+            wget -O /data/network-config/genesis.ssz $GENESIS_SSZ_URI;
+            echo "genesis init done";
+          else
+            echo "genesis exists. skipping...";
+          fi;
+          (tr '\n' ',' < /data/network-config/bootnodes.txt | sed 's/[^,]*/"&"/g') > /data/network-config/bootnodes2.txt;
+          mv /data/network-config/bootnodes2.txt /data/network-config/bootnodes.txt;
+          echo "bootnode init done: $(cat /data/network-config/bootnodes.txt)";
+      volumeMounts:
+        - name: storage
+          mountPath: "/data"
