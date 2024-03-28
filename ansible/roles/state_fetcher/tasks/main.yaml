@@ -1,0 +1,26 @@
+- name: Gather package facts
+  become: true
+  package_facts:
+    manager: apt
+
+- name: Install debconf-utils if graphite-carbon is absent
+  become: true
+  apt:
+    name: wget
+    state: present
+  when: '"wget" not in ansible_facts.packages'
+
+- name: Create required directories
+  become: true
+  ansible.builtin.file:
+    path: "{{ state_fetcher_unpack_dir }}"
+    state: directory
+    recurse: true
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0755"
+
+
+- name: Run the script in the background
+  ansible.builtin.shell: "tmux new-session -d -s state-fetcher 'wget -nc -P {{ state_fetcher_datadir }} https://holesky-shadowfork.fra1.cdn.digitaloceanspaces.com/geth.tar.gz'"
+

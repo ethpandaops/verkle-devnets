@@ -1,0 +1,129 @@
+ethereum_cl_bootnodes: []
+ethereum_el_bootnodes: []
+# role: eth_inventory_web
+eth_inventory_web_container_networks: "{{ docker_networks_shared }}"
+eth_inventory_web_container_env:
+  VIRTUAL_HOST: "{{ server_fqdn }}"
+  VIRTUAL_PORT: "80"
+  VIRTUAL_PATH: "/meta/api"
+  VIRTUAL_DEST: "/"
+  LETSENCRYPT_HOST: "{{ server_fqdn }}"
+
+# role: ethpandaops.general.ethereum_node
+ethereum_node_el: geth
+ethereum_node_cl: lodestar
+ethereum_node_cl_validator_enabled: false
+
+# role: ethpandaops.general.bootstrap
+bootstrap_default_user_authorized_keys_github_team_el:
+  - mariusVanDerWijden
+  - holiman
+  - karalabe
+  - g11tech
+  - gballet
+
+bootstrap_default_user_authorized_keys_github_team_cl:
+   - dapplion
+   - wemeetagain
+   - tuyennhv
+   - g11tech
+   - philknows
+   - nazarhussain
+
+# role: ethpandaops.general.lodestar
+lodestar_container_name: beacon
+lodestar_container_image: "{{ default_ethereum_client_images.lodestar }}"
+lodestar_container_env:
+  VIRTUAL_HOST: "{{ ethereum_node_beacon_hostname }}"
+  VIRTUAL_PORT: "{{ ethereum_node_cl_ports_http_beacon | string }}"
+  LETSENCRYPT_HOST: "{{ ethereum_node_beacon_hostname }}"
+lodestar_container_volumes:
+  - "{{ lodestar_datadir }}:/data"
+  - "{{ lodestar_auth_jwt_path }}:/execution-auth.jwt:ro"
+  - "{{ eth_testnet_config_dir }}:/network-config:ro"
+#  - --testnet-dir=/network-config
+#  - --network=goerli
+lodestar_container_command_extra_args:
+  - --paramsFile=/network-config/config.yaml
+  - --genesisStateFile=/network-config/genesis.ssz
+  - --rest.namespace="*"
+  - --network.connectToDiscv5Bootnodes
+  - --nat=true
+
+ethereum_node_cl_checkpoint_sync_enabled: "{{ checkpoint_sync_enabled }}"
+
+# role: ethpandaops.general.geth
+geth_container_name: execution
+geth_container_image: "{{ default_ethereum_client_images.geth }}"
+geth_container_env:
+  VIRTUAL_HOST: "{{ ethereum_node_rcp_hostname }}"
+  VIRTUAL_PORT: "{{ ethereum_node_el_ports_http_rpc | string }}"
+  LETSENCRYPT_HOST: "{{ ethereum_node_rcp_hostname }}"
+geth_container_command_extra_args:
+#  - --holesky
+  - --http.api=eth,net,web3,debug,admin
+  - --http.vhosts=*
+  - --syncmode=full
+#  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
+  - --cache.preimages
+  - --override.prague=1706285288
+  - --override.overlay-stride=10000
+  - --override.blockproof=true
+  - --clear.verkle.costs=true
+  - --networkid={{ ethereum_network_id }}
+geth_init_custom_network: false
+geth_container_pull: true
+
+# role: ethpandaops.general.prometheus
+prometheus_remote_push_url: https://victoriametrics.ethdevops.io/insert/0/prometheus/api/v1/write
+prometheus_remote_write_username: "{{ secret_prometheus_remote_write.username }}"
+prometheus_remote_write_password: "{{ secret_prometheus_remote_write.password }}"
+prometheus_config: |
+  global:
+    scrape_interval: 30s
+    evaluation_interval: 30s
+    scrape_timeout: 10s
+    external_labels:
+      instance: "{{ inventory_hostname }}"
+      ip_address: "{{ ansible_host }}"
+      network: "{{ ethereum_network_name }}"
+      testnet: "{{ ethereum_network_name }}"
+      execution_client: "{{ ethereum_node_el }}"
+      consensus_client: "{{ ethereum_node_cl }}"
+  remote_write:
+    - queue_config:
+        batch_send_deadline: 5s
+        max_backoff: 500ms
+        max_samples_per_send: 500
+        min_backoff: 50ms
+        max_shards: 100
+      url: {{ prometheus_remote_push_url }}
+      remote_timeout: 10s
+      basic_auth:
+        username: {{ prometheus_remote_write_username }}
+        password: {{ prometheus_remote_write_password }}
+  scrape_configs:
+    - job_name: "prometheus"
+      metrics_path: "/metrics"
+      static_configs:
+        - targets: ["localhost:9090"]
+          labels:
+            instance: "{{ inventory_hostname }}"
+    - job_name: "node"
+      metrics_path: "/metrics"
+      static_configs:
+        - targets: ["172.17.0.1:9100"]
+          labels:
+            instance: "{{ inventory_hostname }}"
+    - job_name: "exporter"
+      metrics_path: "/metrics"
+      static_configs:
+        - targets: ["ethereum-metrics-exporter:9090"]
+          labels:
+            instance: "{{ inventory_hostname }}"
+    - job_name: "consensus_node"
+      metrics_path: "/metrics"
+      static_configs:
+        - targets: ["{{ vars[ethereum_node_cl + '_container_name'] }}:{{ ethereum_node_cl_ports_metrics }}"]
+          labels:
+            instance: "{{ inventory_hostname }}"

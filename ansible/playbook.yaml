@@ -3,33 +3,33 @@
     - role: ethpandaops.general.ethereum_genesis
       tags: [ethereum_genesis]
 
-- import_playbook: ethpandaops.general.bootstrap_server
-  vars:
-    target: "all:!localhost"
-  tags: [init-server, bootstrap]
-
-- hosts: all:!localhost
-  serial: "{{ batch_count | default('100%') }}"
-  become: true
-  roles:
-    # - role: robertdebock.fail2ban
-    #   tags: [init-server, fail2ban]
-    - role: geerlingguy.docker
-      tags: [init-server, docker]
-    - role: geerlingguy.pip
-      pip_install_packages:
-        - name: docker
-      tags: [init-server, pip]
-    - role: ethpandaops.general.docker_cleanup
-      tags: [init-server, docker_cleanup]
-    - role: ethpandaops.general.docker_network
-      tags: [init-server, docker_network]
-    - role: ethpandaops.general.node_exporter
-      tags: [init-server, node_exporter]
-    - role: ethpandaops.general.prometheus
-      tags: [init-server, prometheus]
-    - role: ethpandaops.general.vector
-      tags: [init-server, vector]
+#- import_playbook: ethpandaops.general.bootstrap_server
+#  vars:
+#    target: "all:!localhost"
+#  tags: [init-server, bootstrap]
+#
+#- hosts: all:!localhost
+#  serial: "{{ batch_count | default('100%') }}"
+#  become: true
+#  roles:
+#    # - role: robertdebock.fail2ban
+#    #   tags: [init-server, fail2ban]
+#    - role: geerlingguy.docker
+#      tags: [init-server, docker]
+#    - role: geerlingguy.pip
+#      pip_install_packages:
+#        - name: docker
+#      tags: [init-server, pip]
+#    - role: ethpandaops.general.docker_cleanup
+#      tags: [init-server, docker_cleanup]
+#    - role: ethpandaops.general.docker_network
+#      tags: [init-server, docker_network]
+#    - role: ethpandaops.general.node_exporter
+#      tags: [init-server, node_exporter]
+#    - role: ethpandaops.general.prometheus
+#      tags: [init-server, prometheus]
+#    - role: ethpandaops.general.vector
+#      tags: [init-server, vector]
 
 - hosts: bootnode
   become: true
@@ -72,12 +72,12 @@
               )
           }}
 
-- name: Install dora
-  hosts: dora
-  become: true
-  roles:
-    - role: ethpandaops.general.dora
-      tags: [dora, explorer]
+#- name: Install dora
+#  hosts: dora
+#  become: true
+#  roles:
+#    - role: ethpandaops.general.dora
+#      tags: [dora, explorer]
 
 - hosts: bootnode
   become: true
@@ -85,20 +85,20 @@
     - role: ethpandaops.general.ethereum_inventory_web
       tags: [eth_inventory_web, ethereum_inventory_web]
 
-- hosts: tx_fuzz_txs
-  become: true
-  roles:
-    - role: ethpandaops.general.tx_fuzz
-      tags: [tx_fuzz, tx_fuzz_txs]
-      vars:
-        tx_fuzz_container_name: "{{ tx_fuzz_txs_container_name }}"
-        tx_fuzz_container_command: "{{ tx_fuzz_txs_container_command }}"
-        tx_fuzz_container_image: "{{ tx_fuzz_txs_container_image }}"
-
+#- hosts: tx_fuzz_txs
+#  become: true
+#  roles:
+#    - role: ethpandaops.general.tx_fuzz
+#      tags: [tx_fuzz, tx_fuzz_txs]
+#      vars:
+#        tx_fuzz_container_name: "{{ tx_fuzz_txs_container_name }}"
+#        tx_fuzz_container_command: "{{ tx_fuzz_txs_container_command }}"
+#        tx_fuzz_container_image: "{{ tx_fuzz_txs_container_image }}"
+#
 
 - hosts: localhost
   roles:
     - role: ethpandaops.general.ethereum_post_network_setup
       tags: [eth_post_network_setup, ethereum_post_network_setup]
-    - role: ethpandaops.general.generate_kubernetes_config
-      tags: [gen_kubernetes_config, generate_kubernetes_config]
+#    - role: ethpandaops.general.generate_kubernetes_config
+#      tags: [gen_kubernetes_config, generate_kubernetes_config]
