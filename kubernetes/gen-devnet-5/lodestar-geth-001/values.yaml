@@ -129,7 +129,7 @@ lodestar-geth-001:
           - >
             if ! [ -f /data/genesis_init_done ];
             then
-              geth init --state.scheme=path --datadir /data /data/network-config/genesis.json;
+              geth --datadir /data --override.prague=1711712640 --cache.preimages init /data/network-config/genesis.json;
               touch /data/genesis_init_done;
               echo "genesis init done";
             else
