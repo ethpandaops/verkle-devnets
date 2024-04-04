@@ -39,6 +39,7 @@ rpc-proxy:
       "eth_getBalance",
       "eth_getBlockByHash",
       "eth_getBlockByNumber",
+      "eth_getBlockReceipts",
       "eth_getBlockTransactionCountByHash",
       "eth_getBlockTransactionCountByNumber",
       "eth_getCode",
@@ -66,4 +67,5 @@ rpc-proxy:
       "debug_traceBlock",
       "trace_transaction",
       "trace_block",
+
     ]
