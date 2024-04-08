@@ -10,22 +10,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  prepare:
-    name: "Prepare Test"
-    runs-on: ubuntu-latest
-    outputs:
-      kubeconfig: ${{ steps.kubeconfig.outputs.kubeconfig }}
+  run_test:
+    name: "Run verkle conversion test"
+    runs-on: services-medium-shared
     steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
     - name: "Install rancher CLI"
       shell: bash
       run: |
         curl -L https://github.com/rancher/cli/releases/download/v2.8.0/rancher-linux-amd64-v2.8.0.tar.gz | tar xvz
-        mv ./rancher-v2.8.0/rancher /usr/local/bin/rancher
+        sudo mv ./rancher-v2.8.0/rancher /usr/local/bin/rancher
     - name: Login to rancher
       shell: bash
       run: |
         rancher login --token "${{ secrets.RANCHER_TOKEN }}" "${{ secrets.RANCHER_URL }}" --context c-m-2m5z22jp:p-8vpkn
-    
     - name: Login to kubernetes cluster
       shell: bash
       run: |
@@ -37,20 +37,11 @@ jobs:
         rancher kubectl config view --raw > kubeconfig
         echo "kubeconfig=$(cat kubeconfig | base64 -w 0)" >> $GITHUB_OUTPUT
 
-  run_test:
-    name: "Run verkle conversion test"
-    runs-on: services-medium-shared
-    needs: prepare
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-    
     - name: Remember start time
       id: start_time
       shell: bash
       run: |
         echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
-        echo -n "${{ needs.prepare.outputs.kubeconfig }}" | wc -m
     
     - name: Run kurtosis testnet
       id: testnet
@@ -58,7 +49,7 @@ jobs:
       with:
         kurtosis_extra_args: "--image-download always --non-blocking-tasks --verbosity DETAILED"
         kurtosis_backend: "kubernetes"
-        kubernetes_config: "${{ needs.prepare.outputs.kubeconfig }}"
+        kubernetes_config: "${{ steps.kubeconfig.outputs.kubeconfig }}"
         kubernetes_cluster: "k3s-berlin"
         kubernetes_storage_class: "local-path"
         ethereum_package_branch: "bbusa/verkle-archive"
