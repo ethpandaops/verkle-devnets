@@ -60,6 +60,7 @@ jobs:
           exit 1
         fi
 
+        mkdir ./temp
         touch ./temp/notification_text.txt
         echo "**Name:** Verkle Conversion Test" >> ./temp/notification_text.txt
         echo "**Status:** ${{ steps.testnet.outputs.test_result }}" >> ./temp/notification_text.txt
