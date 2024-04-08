@@ -22,6 +22,7 @@ jobs:
       run: |
         echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
     
+    # setup kubernetes backend
     - name: "Install kubectl"
       shell: bash
       run: |
@@ -43,9 +44,8 @@ jobs:
       run: |
         rancher kubectl config view --raw > kubeconfig
         echo "kubeconfig=$(cat kubeconfig | base64 -w 0)" >> $GITHUB_OUTPUT
-        echo $(cat kubeconfig | wc -l)
-        echo $(cat kubeconfig | base64 -w 0 | wc -m)
     
+    # run kurtosis testnet & verkle conversion test
     - name: Run kurtosis testnet
       id: testnet
       uses: ethpandaops/kurtosis-assertoor-github-action@v1
@@ -59,6 +59,7 @@ jobs:
         ethereum_package_args: "./.github/test/kurtosis-args.yaml"
         enclave_name: "verkle-conv-${{ github.run_id }}"
 
+    # generate error notifications
     - name: Send discord notification (on failure)
       if: ${{ failure() || steps.testnet.outputs.test_result == 'failure' }}
       shell: bash
