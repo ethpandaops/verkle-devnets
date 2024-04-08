@@ -13,6 +13,7 @@ jobs:
   run_test:
     name: "Run verkle conversion test"
     runs-on: services-medium-shared
+    timeout-minutes: 1440
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
