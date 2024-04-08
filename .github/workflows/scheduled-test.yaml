@@ -10,13 +10,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  get_tests:
-    name: "Run verkle conversion test"
-    runs-on: services-medium-shared
+  prepare:
+    name: "Prepare Test"
+    runs-on: ubuntu-latest
+    outputs:
+      kubeconfig: ${{ steps.kubeconfig.outputs.kubeconfig }}
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-    
     - name: "Install rancher CLI"
       shell: bash
       run: |
@@ -26,6 +25,7 @@ jobs:
       shell: bash
       run: |
         rancher login --token "${{ secrets.RANCHER_TOKEN }}" "${{ secrets.RANCHER_URL }}" --context c-m-2m5z22jp:p-8vpkn
+    
     - name: Login to kubernetes cluster
       shell: bash
       run: |
@@ -36,6 +36,19 @@ jobs:
       run: |
         rancher kubectl config view --raw > kubeconfig
         echo "kubeconfig=$(cat kubeconfig | base64 -w 0)" >> $GITHUB_OUTPUT
+
+  run_test:
+    name: "Run verkle conversion test"
+    runs-on: services-medium-shared
+    needs: prepare
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Remember start time
+      id: start_time
+      shell: bash
+      run: |
         echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
     
     - name: Run kurtosis testnet
@@ -44,7 +57,7 @@ jobs:
       with:
         kurtosis_extra_args: "--image-download always --non-blocking-tasks --verbosity DETAILED"
         kurtosis_backend: "kubernetes"
-        kubernetes_config: ${{ steps.kubeconfig.outputs.kubeconfig }}
+        kubernetes_config: ${{ needs.prepare.outputs.kubeconfig }}
         kubernetes_cluster: "k3s-berlin"
         kubernetes_storage_class: "local-path"
         ethereum_package_branch: "bbusa/verkle-archive"
@@ -65,7 +78,7 @@ jobs:
         echo "**Name:** Verkle Conversion Test" >> ./temp/notification_text.txt
         echo "**Status:** ${{ steps.testnet.outputs.test_result }}" >> ./temp/notification_text.txt
 
-        start_time="${{ steps.kubeconfig.outputs.start_time }}"
+        start_time="${{ steps.start_time.outputs.start_time }}"
         end_time="$(date +%s)"
         runtime="$(expr $end_time - $start_time)"
         echo "**Run Time:** $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))" >> ./temp/notification_text.txt
