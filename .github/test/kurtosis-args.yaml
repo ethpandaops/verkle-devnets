@@ -1,0 +1,29 @@
+participants:
+  - el_type: geth
+    el_image: ethpandaops/geth:gballet-transition-post-genesis
+    cl_type: lodestar
+    cl_image: ethpandaops/lodestar:g11tech-verge
+    count: 1
+  - el_type: geth
+    el_image: ethpandaops/geth:gballet-transition-post-genesis
+    cl_type: lodestar
+    cl_image: ethpandaops/lodestar:g11tech-verge
+    count: 1
+network_params:
+  electra_fork_epoch: 1
+  genesis_delay: 100
+  network: holesky-shadowfork-verkle
+  network_sync_base_url: http://10.10.101.7:9000/snapshots/
+snooper_enabled: true
+persistent: true
+global_node_selectors: {"kubernetes.io/hostname": "lenovo-berlin-02"}
+launch_additional_services: true
+additional_services:
+  - assertoor
+  - dora
+assertoor_params:
+  image: "ethpandaops/assertoor:verkle-support"
+  run_stability_check: false
+  run_block_proposal_check: true
+  tests:
+    - https://raw.githubusercontent.com/ethpandaops/assertoor-test/master/assertoor-tests/verkle-conversion-check.yaml
