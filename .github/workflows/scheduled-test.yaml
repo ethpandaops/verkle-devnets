@@ -41,7 +41,6 @@ jobs:
     - name: Run kurtosis testnet
       id: testnet
       uses: ethpandaops/kurtosis-assertoor-github-action@v1
-      continue-on-error: true
       with:
         kurtosis_extra_args: "--image-download always --non-blocking-tasks --verbosity DETAILED"
         kurtosis_backend: "kubernetes"
