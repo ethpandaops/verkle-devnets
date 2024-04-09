@@ -29,6 +29,8 @@ dora:
   extraEnv:
    - name: FRONTEND_PPROF
      value: "true"
+   - name: KILLSWITCH_DISABLE_SSZ_ENCODING
+     value: "true"
    
   postgresql:
     name: "dora-postgresql"
