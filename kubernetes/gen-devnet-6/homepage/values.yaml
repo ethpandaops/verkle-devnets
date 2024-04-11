@@ -96,9 +96,9 @@ testnet-homepage:
         forkmonUrl: https://forkmon.verkle-gen-devnet-6.ethpandaops.io
         beaconexplorerUrl: "https://verkle-gen-devnet-6.beaconcha.in"
         doraUrl: https://dora.verkle-gen-devnet-6.ethpandaops.io
-        checkpointSyncUrl: "https://checkpoint-sync.verkle-gen-devnet-6.ethpandaops.io"
-        blobscanUrl: https://blobscan.com
-        blobscanethpandaUrl: https://blobscan.verkle-gen-devnet-6.ethpandaops.io
+        #checkpointSyncUrl: "https://checkpoint-sync.verkle-gen-devnet-6.ethpandaops.io"
+        #blobscanUrl: https://blobscan.com
+        #blobscanethpandaUrl: https://blobscan.verkle-gen-devnet-6.ethpandaops.io
         ethstatsUrl: https://ethstats.verkle-gen-devnet-6.ethpandaops.io
         chainName: "verkle-gen-devnet-6"
         chainId: "69420"
