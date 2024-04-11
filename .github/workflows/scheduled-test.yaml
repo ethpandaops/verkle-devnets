@@ -10,25 +10,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  get_tests:
+  run_test:
     name: "Run verkle conversion test"
     runs-on: services-medium-shared
+    timeout-minutes: 1440
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
+    - name: Remember start time
+      id: start_time
+      shell: bash
+      run: |
+        echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
     
+    # setup kubernetes backend
+    - name: "Install kubectl"
+      shell: bash
+      run: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
     - name: "Install rancher CLI"
       shell: bash
       run: |
         curl -L https://github.com/rancher/cli/releases/download/v2.8.0/rancher-linux-amd64-v2.8.0.tar.gz | tar xvz
-        mv ./rancher-v2.8.0/rancher /usr/local/bin/rancher
-    - name: Login to rancher
+        sudo mv ./rancher-v2.8.0/rancher /usr/local/bin/rancher
+    - name: Login to rancher & kubernetes cluster
       shell: bash
       run: |
         rancher login --token "${{ secrets.RANCHER_TOKEN }}" "${{ secrets.RANCHER_URL }}" --context c-m-2m5z22jp:p-8vpkn
-    - name: Login to kubernetes cluster
-      shell: bash
-      run: |
         rancher kubectl config use-context "k3s-berlin"
     - name: Generate kubeconfig
       id: kubeconfig
@@ -36,21 +45,22 @@ jobs:
       run: |
         rancher kubectl config view --raw > kubeconfig
         echo "kubeconfig=$(cat kubeconfig | base64 -w 0)" >> $GITHUB_OUTPUT
-        echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
     
+    # run kurtosis testnet & verkle conversion test
     - name: Run kurtosis testnet
       id: testnet
       uses: ethpandaops/kurtosis-assertoor-github-action@v1
       with:
         kurtosis_extra_args: "--image-download always --non-blocking-tasks --verbosity DETAILED"
         kurtosis_backend: "kubernetes"
-        kubernetes_config: ${{ steps.kubeconfig.outputs.kubeconfig }}
+        kubernetes_config: "${{ steps.kubeconfig.outputs.kubeconfig }}"
         kubernetes_cluster: "k3s-berlin"
         kubernetes_storage_class: "local-path"
         ethereum_package_branch: "bbusa/verkle-archive"
         ethereum_package_args: "./.github/test/kurtosis-args.yaml"
         enclave_name: "verkle-conv-${{ github.run_id }}"
 
+    # generate error notifications
     - name: Send discord notification (on failure)
       if: ${{ failure() || steps.testnet.outputs.test_result == 'failure' }}
       shell: bash
@@ -65,14 +75,10 @@ jobs:
         echo "**Name:** Verkle Conversion Test" >> ./temp/notification_text.txt
         echo "**Status:** ${{ steps.testnet.outputs.test_result }}" >> ./temp/notification_text.txt
 
-        start_time="${{ steps.kubeconfig.outputs.start_time }}"
+        start_time="${{ steps.start_time.outputs.start_time }}"
         end_time="$(date +%s)"
         runtime="$(expr $end_time - $start_time)"
         echo "**Run Time:** $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))" >> ./temp/notification_text.txt
-
-        echo "**Clients:**" >> ./temp/notification_text.txt
-        cat ./temp/clients_summary.txt >> ./temp/notification_text.txt
-        echo "" >> ./temp/notification_text.txt
         
         echo "**Failed Test:**" >> ./temp/notification_text.txt
         if [ -z "${{ steps.testnet.outputs.test_result }}" ]; then
