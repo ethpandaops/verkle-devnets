@@ -1,0 +1,13 @@
+secret_nginx_shared_basic_auth:
+    name: eth
+    password: g11techisntoneperson
+
+geth_container_command_extra_args:
+  - --http.api=eth,net,web3,debug,admin,personal,trace
+  - --http.vhosts=*
+  - --networkid={{ ethereum_network_id }}
+  - --syncmode=full
+  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
+  - --rpc.allow-unprotected-txs
+  - --cache.preimages
+  - --override.prague={{ ethereum_genesis_timestamp }}
