@@ -22,5 +22,5 @@
 
 
 - name: Run the script in the background
-  ansible.builtin.shell: "tmux new-session -d -s state-fetcher 'wget -nc -P {{ state_fetcher_datadir }} https://holesky-shadowfork.fra1.cdn.digitaloceanspaces.com/geth.tar.gz'"
+  ansible.builtin.shell: "tmux new-session -d -s state-fetcher 'wget -nc -P {{ state_fetcher_datadir }} {{ state_fetcher_s3_url }}'"
 

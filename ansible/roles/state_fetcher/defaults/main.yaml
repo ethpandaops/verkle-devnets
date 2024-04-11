@@ -1,5 +1,5 @@
 state_fetcher_datadir: /data/
 state_fetcher_unpack_dir: /data/geth
 
-state_fetcher_s3_bucket: https://holesky-shadowfork.fra1.digitaloceanspaces.com
-state_fetcher_s3_url: "{{ state_fetcher_s3_bucket }}/geth.tar.gz"
+state_fetcher_s3_bucket: https://ethpandaops-ethereum-node-snapshots.ams3.digitaloceanspaces.com
+state_fetcher_s3_url: "{{ state_fetcher_s3_bucket }}/holesky/geth/888100/"
