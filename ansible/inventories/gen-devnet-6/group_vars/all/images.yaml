@@ -4,7 +4,7 @@ default_ethereum_client_images:
   lighthouse: ethpandaops/lighthouse:verkle-trees-capella-2ffb8a9
   teku: ethpandaops/teku:verkle-trees-ab99e2d
 ### Execution layer clients
-  geth: ethpandaops/geth:gballet-eip-4762-rewrite-ea20444
+  geth: ethpandaops/geth:gballet-eip-4762-rewrite-2933731
   nethermind: nethermindeth/nethermind:verkle-gas-fix-0cdc913b4
 
 default_tooling_images:
