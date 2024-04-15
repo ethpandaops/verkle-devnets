@@ -1,11 +1,11 @@
 participants:
   - el_type: geth
-    el_image: ethpandaops/geth:gballet-transition-post-genesis
+    el_image: ethpandaops/geth:transition-post-genesis-rebase-and-merge
     cl_type: lodestar
     cl_image: ethpandaops/lodestar:g11tech-verge
     count: 1
   - el_type: geth
-    el_image: ethpandaops/geth:gballet-transition-post-genesis
+    el_image: ethpandaops/geth:transition-post-genesis-rebase-and-merge
     cl_type: lodestar
     cl_image: ethpandaops/lodestar:g11tech-verge
     count: 1
