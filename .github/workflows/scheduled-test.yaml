@@ -12,7 +12,7 @@ concurrency:
 jobs:
   run_test:
     name: "Run verkle conversion test"
-    runs-on: services-medium-shared
+    runs-on: [self-hosted, size-xs]
     timeout-minutes: 1440
     steps:
     - name: Checkout Repository
