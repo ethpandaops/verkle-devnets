@@ -22,6 +22,35 @@ jobs:
       shell: bash
       run: |
         echo "start_time=$(date +%s)" >> $GITHUB_OUTPUT
+    - name: "Install shell dependencies"
+      shell: bash
+      run: |
+        if [ -z "$(which yq)" ]; then
+          sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && sudo chmod +x /usr/bin/yq
+        fi
+
+        apt_updated="0"
+
+        if [ -z "$(which jq)" ]; then
+          [ "$apt_updated" == "1" ] || sudo apt-get update
+          apt_updated="1"
+          sudo apt-get install -y jq
+        fi
+
+        if [ -z "$(which envsubst)" ]; then
+          [ "$apt_updated" == "1" ] || sudo apt-get update
+          apt_updated="1"
+          sudo apt-get install -y gettext-base
+        fi
+
+        if [ -z "$(which gh)" ]; then
+          sudo mkdir -p -m 755 /etc/apt/keyrings
+          wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+          sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt-get update
+          sudo apt-get install -y gh
+        fi
     
     # setup kubernetes backend
     - name: "Install kubectl"
