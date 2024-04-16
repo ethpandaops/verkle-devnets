@@ -88,6 +88,7 @@ jobs:
         ethereum_package_branch: "bbusa/verkle-archive"
         ethereum_package_args: "./.github/test/kurtosis-args.yaml"
         enclave_name: "verkle-conv-${{ github.run_id }}"
+        persistent_logs: "true"
 
     # generate error notifications
     - name: Send discord notification (on failure)
