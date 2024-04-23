@@ -1,0 +1,8 @@
+
+# role: ethpandaops.general.geth
+geth_container_name: execution
+geth_container_image: "{{ default_tooling_images.witness_explorer }}"
+geth_container_env:
+  VIRTUAL_HOST: "witness.{{ network_subdomain }}"
+  VIRTUAL_PORT: "8181"
+  LETSENCRYPT_HOST: "witness.{{ network_subdomain }}"
