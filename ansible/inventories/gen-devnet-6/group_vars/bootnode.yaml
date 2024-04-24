@@ -1,4 +1,6 @@
-ethereum_cl_bootnodes: []
+ethereum_cl_bootnodes:
+  - "{{ hostvars['lighthouse-geth-1']['ethereum_node_fact_cl_enr'] }}"
+
 # ethereum_el_bootnodes:
 #   - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_el_enode'] }}"
 #   - "{{ hostvars['lighthouse-geth-1']['ethereum_node_fact_el_enode'] }}"
@@ -49,7 +51,7 @@ lodestar_container_command_extra_args:
   - --rest.namespace="*"
   - --network.connectToDiscv5Bootnodes
   - --nat=true
-  #- --bootnodes={{ ethereum_cl_bootnodes | join(',') }}
+  - --bootnodes={{ ethereum_cl_bootnodes | join(',') }}
 
 # role: ethpandaops.general.geth
 geth_container_name: execution
