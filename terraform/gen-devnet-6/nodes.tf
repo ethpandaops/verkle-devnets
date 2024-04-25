@@ -8,6 +8,16 @@ variable "bootnode" {
   }
 }
 
+# Witness Explorer
+variable "witness_explorer" {
+  default = {
+    name            = "lodestar-geth-witness"
+    count           = 1
+    validator_start = 0
+    validator_end   = 0
+  }
+}
+
 # Lighthouse
 variable "lighthouse_geth" {
   default = {

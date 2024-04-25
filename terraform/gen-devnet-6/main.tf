@@ -62,6 +62,7 @@ variable "base_cidr_block" {
 locals {
   vm_groups = [
     var.bootnode,
+    var.witness_explorer,
     var.lighthouse_geth,
     var.lighthouse_nethermind,
     var.lighthouse_erigon,
