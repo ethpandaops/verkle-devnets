@@ -229,6 +229,24 @@ resource "cloudflare_record" "server_record_beacon6" {
   ttl     = 120
 }
 
+resource "cloudflare_record" "tooling_record_witness" {
+  zone_id = data.cloudflare_zone.default.id
+  name    = "witness.${var.ethereum_network}"
+  type    = "A"
+  value   = hcloud_server.main["lodestar-geth-2"].ipv4_address
+  proxied = false
+  ttl     = 120
+}
+
+resource "cloudflare_record" "tooling_record_witness6" {
+  zone_id = data.cloudflare_zone.default.id
+  name    = "witness.${var.ethereum_network}"
+  type    = "AAAA"
+  value   = hcloud_server.main["lodestar-geth-2"].ipv6_address
+  proxied = false
+  ttl     = 120
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //                          GENERATED FILES AND OUTPUTS

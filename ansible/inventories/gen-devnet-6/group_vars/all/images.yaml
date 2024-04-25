@@ -25,3 +25,4 @@ default_tooling_images:
   dora: ethpandaops/dora:verkle-support-latest
   dugtrio: ethpandaops/dugtrio:latest
   powfaucet: pk910/powfaucet:v2-stable
+  witness_explorer: ethpandaops/geth:witness-explorer

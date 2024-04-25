@@ -94,7 +94,8 @@ testnet-homepage:
         beaconRpcUrl: https://beacon.verkle-gen-devnet-6.ethpandaops.io
         explorerUrl: https://explorer.verkle-gen-devnet-6.ethpandaops.io
         forkmonUrl: https://forkmon.verkle-gen-devnet-6.ethpandaops.io
-        beaconexplorerUrl: "https://verkle-gen-devnet-6.beaconcha.in"
+        #beaconexplorerUrl: "https://verkle-gen-devnet-6.beaconcha.in"
+        witnessexplorerUrl: "https://witness.verkle-gen-devnet-6.ethpandaops.io"
         doraUrl: https://dora.verkle-gen-devnet-6.ethpandaops.io
         #checkpointSyncUrl: "https://checkpoint-sync.verkle-gen-devnet-6.ethpandaops.io"
         #blobscanUrl: https://blobscan.com
@@ -128,6 +129,8 @@ testnet-homepage:
         dataLookup: doraUrl
       - name: "Beaconchain explorer"
         dataLookup: "beaconexplorerUrl"
+      - name: "Witness Explorer"
+        dataLookup: "witnessexplorerUrl"
       - name: "Blobscan"
         dataLookup: blobscanUrl
       - name: "Blobscan ethpanda edition"
