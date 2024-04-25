@@ -12,7 +12,7 @@ concurrency:
 jobs:
   run_test:
     name: "Run verkle conversion test"
-    runs-on: [self-hosted, size-xs]
+    runs-on: [self-hosted-ghr, size-xs-x64]
     timeout-minutes: 1440
     steps:
     - name: Checkout Repository
