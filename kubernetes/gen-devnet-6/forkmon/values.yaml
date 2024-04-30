@@ -33,6 +33,8 @@ forkmon:
     name: lodestar-geth-2
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@rpc.lodestar-geth-3.verkle-gen-devnet-6.ethpandaops.io
     name: lodestar-geth-3
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@rpc.lodestar-geth-witness-1.verkle-gen-devnet-6.ethpandaops.io
+    name: lodestar-geth-witness-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@rpc.teku-geth-1.verkle-gen-devnet-6.ethpandaops.io
     name: teku-geth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@rpc.teku-geth-2.verkle-gen-devnet-6.ethpandaops.io

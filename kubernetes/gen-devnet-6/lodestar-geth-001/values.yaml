@@ -50,7 +50,7 @@ lodestar-geth-001:
             lodestar:
               - --paramsFile=/data/network-config/config.yaml
               - --genesisStateFile=/data/network-config/genesis.ssz
-              - --bootnodes=enr:-MS4QBIEN0b4PwhycQ5Cmv593uWggCNLMvPO_nCW36YjCfcECfefyEomGVa0qmeAOykjYBIJyn_di9BJ_jKzS0VL9p8Eh2F0dG5ldHOIAAAAAAMAAACEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQIS9JNsUw3XdQqdeaHKWSdLV6RvTkHSNXWgBXnfcuzIj4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --bootnodes=enr:-MS4QEhGSs1PhikjaaTSTcAC5V9qe-XE7CYZD9uA9npHXBXUWBJ_van06a2CicryM1vUOCQOegsfSTfJqR9pN7ZRpBsEh2F0dG5ldHOIAAAAAABgAACEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
               - --rest.namespace="*"
               - --network.connectToDiscv5Bootnodes
               - --nat=true
@@ -60,7 +60,7 @@ lodestar-geth-001:
             prysm:
             lighthouse:
               - --testnet-dir=/data/network-config
-              - --boot-nodes=enr:-MS4QBIEN0b4PwhycQ5Cmv593uWggCNLMvPO_nCW36YjCfcECfefyEomGVa0qmeAOykjYBIJyn_di9BJ_jKzS0VL9p8Eh2F0dG5ldHOIAAAAAAMAAACEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQIS9JNsUw3XdQqdeaHKWSdLV6RvTkHSNXWgBXnfcuzIj4hzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --boot-nodes=enr:-MS4QEhGSs1PhikjaaTSTcAC5V9qe-XE7CYZD9uA9npHXBXUWBJ_van06a2CicryM1vUOCQOegsfSTfJqR9pN7ZRpBsEh2F0dG5ldHOIAAAAAABgAACEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
               - --debug-level=info
               - --prune-payloads=false
               - --reconstruct-historic-states
