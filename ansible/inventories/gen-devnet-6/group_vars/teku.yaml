@@ -49,6 +49,7 @@ teku_container_command_extra_args:
   - --metrics-block-timing-tracking-enabled
   - --Xpeer-rate-limit=100000
   - --Xpeer-request-limit=1000
+  - --ignore-weak-subjectivity-period-enabled
 
 teku_validator_container_volumes:
   - "{{ teku_validator_datadir }}:/validator-data"
