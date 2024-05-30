@@ -1,11 +1,11 @@
 participants:
   - el_type: geth
-    el_image: ethpandaops/geth:kaustinen-with-shapella
+    el_image: ethpandaops/geth:base-root-last-merkle-root-merge
     cl_type: lodestar
     cl_image: ethpandaops/lodestar:g11tech-verge
     count: 1
   - el_type: geth
-    el_image: ethpandaops/geth:kaustinen-with-shapella
+    el_image: ethpandaops/geth:base-root-last-merkle-root-merge
     cl_type: lodestar
     cl_image: ethpandaops/lodestar:g11tech-verge
     count: 1
