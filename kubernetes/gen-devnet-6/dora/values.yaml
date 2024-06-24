@@ -29,11 +29,11 @@ dora:
   extraEnv:
    - name: FRONTEND_PPROF
      value: "true"
-   
+
   postgresql:
     name: "dora-postgresql"
     fullnameOverride: "dora-postgresql"
-  
+
   endpoints:
   # Rpc
   - url: http://lodestar-geth-001:5052
@@ -61,7 +61,7 @@ dora:
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-2.verkle-gen-devnet-6.ethpandaops.io
     name: lodestar-geth-2
     priority: -1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-3.verkle-gen-devnet-6.ethpandaops.io
+  - url: https://eth:g11techisntoneperson@bn.lodestar-geth-3.verkle-gen-devnet-6.ethpandaops.io
     name: lodestar-geth-3
     priority: -1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.verkle-devnets.node_ingress.combined}>@bn.lodestar-geth-witness-1.verkle-gen-devnet-6.ethpandaops.io

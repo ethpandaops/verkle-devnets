@@ -17,7 +17,7 @@ lodestar-geth-001:
           execution:
             besu:
               - --genesis-file=/data/network-config/besu.json
-              - --bootnodes=enode://686762312c36eb5bacd4044f909c39ad360c7bf99966c14bdc72109a06ca656a226aa646e38e21bb8203980490fc82834576062f6b824d3d08f255c814bfae62@49.13.203.116:30303?discport=30303
+              - --bootnodes=enode://686762312c36eb5bacd4044f909c39ad360c7bf99966c14bdc72109a06ca656a226aa646e38e21bb8203980490fc82834576062f6b824d3d08f255c814bfae62@49.13.203.116:30303?discport=30303,enode://7c51103dd772a164a7c45c2cce2c9171ce1a9e032671a158aac6f8bc7b927dbc0be40a564af1678fd6aec5e2768a41afa3d97d38e3fde6edbeffab31a7a71258@128.140.104.96:30303?discport=30303,enode://1ff18a6e90574d3d7276e72516ac396325770b4c7e2db0b6eaa82dc5edb5ec91d0b4ce7c4b22166a64617d2d27b8555f100a804706518e9ecab7131bc1bdd8b1@49.13.196.169:30303?discport=30303
               - --rpc-http-api=ADMIN,CLIQUE,MINER,ETH,NET,DEBUG,TXPOOL,ENGINE,TRACE,WEB3
               - --sync-mode=FULL
               - --data-storage-format=VERKLE
@@ -26,7 +26,7 @@ lodestar-geth-001:
             nethermind:
               - --Init.ChainSpecPath=/data/network-config/chainspec.json
               - --JsonRpc.EnabledModules=Eth,Subscribe,Trace,TxPool,Web3,Personal,Proof,Net,Parity,Health,Rpc,Debug,Admin
-              - --Discovery.Bootnodes=enode://686762312c36eb5bacd4044f909c39ad360c7bf99966c14bdc72109a06ca656a226aa646e38e21bb8203980490fc82834576062f6b824d3d08f255c814bfae62@49.13.203.116:30303?discport=30303
+              - --Discovery.Bootnodes=enode://686762312c36eb5bacd4044f909c39ad360c7bf99966c14bdc72109a06ca656a226aa646e38e21bb8203980490fc82834576062f6b824d3d08f255c814bfae62@49.13.203.116:30303?discport=30303,enode://7c51103dd772a164a7c45c2cce2c9171ce1a9e032671a158aac6f8bc7b927dbc0be40a564af1678fd6aec5e2768a41afa3d97d38e3fde6edbeffab31a7a71258@128.140.104.96:30303?discport=30303,enode://1ff18a6e90574d3d7276e72516ac396325770b4c7e2db0b6eaa82dc5edb5ec91d0b4ce7c4b22166a64617d2d27b8555f100a804706518e9ecab7131bc1bdd8b1@49.13.196.169:30303?discport=30303
               - --Init.IsMining=false
               - --config=none.cfg
               - --EthStats.Enabled=true
@@ -39,7 +39,7 @@ lodestar-geth-001:
               - --http.vhosts=*
               - --networkid=69420
               - --syncmode=full
-              - --bootnodes=enode://686762312c36eb5bacd4044f909c39ad360c7bf99966c14bdc72109a06ca656a226aa646e38e21bb8203980490fc82834576062f6b824d3d08f255c814bfae62@49.13.203.116:30303?discport=30303
+              - --bootnodes=enode://686762312c36eb5bacd4044f909c39ad360c7bf99966c14bdc72109a06ca656a226aa646e38e21bb8203980490fc82834576062f6b824d3d08f255c814bfae62@49.13.203.116:30303?discport=30303,enode://7c51103dd772a164a7c45c2cce2c9171ce1a9e032671a158aac6f8bc7b927dbc0be40a564af1678fd6aec5e2768a41afa3d97d38e3fde6edbeffab31a7a71258@128.140.104.96:30303?discport=30303,enode://1ff18a6e90574d3d7276e72516ac396325770b4c7e2db0b6eaa82dc5edb5ec91d0b4ce7c4b22166a64617d2d27b8555f100a804706518e9ecab7131bc1bdd8b1@49.13.196.169:30303?discport=30303
               - --rpc.allow-unprotected-txs
               - --cache.preimages
               - --override.prague=1712918400
@@ -50,7 +50,7 @@ lodestar-geth-001:
             lodestar:
               - --paramsFile=/data/network-config/config.yaml
               - --genesisStateFile=/data/network-config/genesis.ssz
-              - --bootnodes=enr:-MS4QEhGSs1PhikjaaTSTcAC5V9qe-XE7CYZD9uA9npHXBXUWBJ_van06a2CicryM1vUOCQOegsfSTfJqR9pN7ZRpBsEh2F0dG5ldHOIAAAAAABgAACEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --bootnodes=enr:-MS4QBWPT9zfwnFIk1lMggYWAfqC-PZhTW15nGaVgJWlW4P1ZZAoQ06NeGRS0oUhtZGP8ODuMrTz0vDrHzBGt0szO547h2F0dG5ldHOIAAAAAAAABgCEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MW4QBhb2RcWgJQP0OLz_acp5JiaQDc9Wf8MT3rLG7RpHo-OUe7Ym4M5enaqe7YFls8OlL9As6lhBOkFfCIpCE1ZJOCB44dhdHRuZXRziAwAAAAAAAAAhGV0aDKQCLWxYWCUllD__________4JpZIJ2NIJpcISAjGhghHF1aWOCIymJc2VjcDI1NmsxoQOJQq_pzRYCn8l9i23GA-q4gAn8F4dTr17b5G0OfNLTjYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA,enr:-MW4QBhb2RcWgJQP0OLz_acp5JiaQDc9Wf8MT3rLG7RpHo-OUe7Ym4M5enaqe7YFls8OlL9As6lhBOkFfCIpCE1ZJOCB44dhdHRuZXRziAwAAAAAAAAAhGV0aDKQCLWxYWCUllD__________4JpZIJ2NIJpcISAjGhghHF1aWOCIymJc2VjcDI1NmsxoQOJQq_pzRYCn8l9i23GA-q4gAn8F4dTr17b5G0OfNLTjYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA
               - --rest.namespace="*"
               - --network.connectToDiscv5Bootnodes
               - --nat=true
@@ -60,7 +60,7 @@ lodestar-geth-001:
             prysm:
             lighthouse:
               - --testnet-dir=/data/network-config
-              - --boot-nodes=enr:-MS4QEhGSs1PhikjaaTSTcAC5V9qe-XE7CYZD9uA9npHXBXUWBJ_van06a2CicryM1vUOCQOegsfSTfJqR9pN7ZRpBsEh2F0dG5ldHOIAAAAAABgAACEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo
+              - --boot-nodes=enr:-MS4QBWPT9zfwnFIk1lMggYWAfqC-PZhTW15nGaVgJWlW4P1ZZAoQ06NeGRS0oUhtZGP8ODuMrTz0vDrHzBGt0szO547h2F0dG5ldHOIAAAAAAAABgCEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MW4QBhb2RcWgJQP0OLz_acp5JiaQDc9Wf8MT3rLG7RpHo-OUe7Ym4M5enaqe7YFls8OlL9As6lhBOkFfCIpCE1ZJOCB44dhdHRuZXRziAwAAAAAAAAAhGV0aDKQCLWxYWCUllD__________4JpZIJ2NIJpcISAjGhghHF1aWOCIymJc2VjcDI1NmsxoQOJQq_pzRYCn8l9i23GA-q4gAn8F4dTr17b5G0OfNLTjYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA,enr:-MW4QBhb2RcWgJQP0OLz_acp5JiaQDc9Wf8MT3rLG7RpHo-OUe7Ym4M5enaqe7YFls8OlL9As6lhBOkFfCIpCE1ZJOCB44dhdHRuZXRziAwAAAAAAAAAhGV0aDKQCLWxYWCUllD__________4JpZIJ2NIJpcISAjGhghHF1aWOCIymJc2VjcDI1NmsxoQOJQq_pzRYCn8l9i23GA-q4gAn8F4dTr17b5G0OfNLTjYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA
               - --debug-level=info
               - --prune-payloads=false
               - --reconstruct-historic-states
@@ -139,7 +139,7 @@ lodestar-geth-001:
           - >
             if ! [ -f /data/genesis_init_done ];
             then
-              geth init --datadir /data /data/network-config/genesis.json;
+              geth init --state.scheme=path --datadir /data /data/network-config/genesis.json;
               touch /data/genesis_init_done;
               echo "genesis init done";
             else
