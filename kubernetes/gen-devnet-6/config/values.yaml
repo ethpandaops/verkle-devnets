@@ -9,85 +9,70 @@ config:
   enabled: true
   files:
     # Support all files as they appear in the github repo
-    - path: /besu.json
+    - path: /metadata/besu.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/besu.json
-    - path: /bootnode.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/besu.json
+    - path: /metadata/bootstrap_nodes.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/bootnode.txt
-    - path: /bootstrap_nodes.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/bootstrap_nodes.txt
+    - path: /metadata/chainspec.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/bootstrap_nodes.txt
-    - path: /chainspec.json
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/chainspec.json
+    - path: /metadata/config.yaml
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/chainspec.json
-    - path: /config.yaml
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/config.yaml
+    - path: /metadata/deposit_contract.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/config.yaml
-    - path: /deploy_block.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/deposit_contract.txt
+    - path: /metadata/deposit_contract_block.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deploy_block.txt
-    - path: /deposit_contract.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/deposit_contract_block.txt
+    - path: /metadata/deposit_contract_block_hash.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deposit_contract.txt
-    - path: /deposit_contract_block.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/deposit_contract_block_hash.txt
+    - path: /metadata/genesis.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deposit_contract_block.txt
-    - path: /deposit_contract_block_hash.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/genesis.json
+    - path: /metadata/genesis.ssz
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deposit_contract_block_hash.txt
-    - path: /genesis.json
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/genesis.ssz
+    - path: /parsed/parsedConsensusGenesis.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/genesis.json
-    - path: /genesis.ssz
-      upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/genesis.ssz
-    - path: /parseBeaconState.json
-      upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/parseBeaconState.json
-    - path: /trusted_setup.txt
-      upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/trusted_setup.txt
-    - path: /trusted_setup.json
-      upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/trusted_setup.json
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/parsed/parsedConsensusGenesis.json
 
     # Execution Layer specific redirects
-    - path: /el/bootnodes
+    - path: /el/enodes.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/bootnode.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/enodes.txt
     - path: /el/besu.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/besu.json
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/besu.json
     - path: /el/chainspec.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/chainspec.json
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/chainspec.json
     - path: /el/genesis.json
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/genesis.json
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/genesis.json
 
     # Consensus Layer specific redirects
     - path: /cl/bootstrap_nodes.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/bootstrap_nodes.txt
-    - path: /cl/boot_enr.yaml
-      upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/boot_enr.yaml
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/bootstrap_nodes.txt
     - path: /cl/config.yaml
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/config.yaml
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/config.yaml
     - path: /cl/genesis.ssz
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/genesis.ssz
-    - path: /cl/deploy_block.txt
-      upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deploy_block.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/genesis.ssz
     - path: /cl/deposit_contract.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deposit_contract.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/deposit_contract.txt
     - path: /cl/deposit_contract_block.txt
       upstream: raw.githubusercontent.com
-      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/deposit_contract_block.txt
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/deposit_contract_block.txt
+    - path: /cl/deposit_contract_block_hash.txt
+      upstream: raw.githubusercontent.com
+      target: /ethpandaops/verkle-devnets/master/network-configs/gen-devnet-6/metadata/deposit_contract_block_hash.txt
 
     # Ansible generated ethereum nodes inventory
     - path: /api/v1/nodes/inventory

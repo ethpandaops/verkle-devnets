@@ -55,8 +55,18 @@ lodestar-geth-001:
               - --network.connectToDiscv5Bootnodes
               - --nat=true
             teku:
-              - --data-storage-mode=ARCHIVE
-              - --Xepochs-store-blobs=max # Keep the blobs forever
+              - --network=/data/network-config/config.yaml
+              - --genesis-state=/data/network-config/genesis.ssz
+              - --p2p-discovery-bootnodes=enr:-MS4QBWPT9zfwnFIk1lMggYWAfqC-PZhTW15nGaVgJWlW4P1ZZAoQ06NeGRS0oUhtZGP8ODuMrTz0vDrHzBGt0szO547h2F0dG5ldHOIAAAAAAAABgCEZXRoMpAItbFhUJSWUCChBwAAAAAAgmlkgnY0gmlwhDENy3SJc2VjcDI1NmsxoQJEB60LC4q-XPwzx0R_OGbPUoslaRDh9fHvAY--rt0_hYhzeW5jbmV0c4gAAAAAAAAAAIN0Y3CCIyiDdWRwgiMo,enr:-MW4QBhb2RcWgJQP0OLz_acp5JiaQDc9Wf8MT3rLG7RpHo-OUe7Ym4M5enaqe7YFls8OlL9As6lhBOkFfCIpCE1ZJOCB44dhdHRuZXRziAwAAAAAAAAAhGV0aDKQCLWxYWCUllD__________4JpZIJ2NIJpcISAjGhghHF1aWOCIymJc2VjcDI1NmsxoQOJQq_pzRYCn8l9i23GA-q4gAn8F4dTr17b5G0OfNLTjYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA,enr:-MW4QBhb2RcWgJQP0OLz_acp5JiaQDc9Wf8MT3rLG7RpHo-OUe7Ym4M5enaqe7YFls8OlL9As6lhBOkFfCIpCE1ZJOCB44dhdHRuZXRziAwAAAAAAAAAhGV0aDKQCLWxYWCUllD__________4JpZIJ2NIJpcISAjGhghHF1aWOCIymJc2VjcDI1NmsxoQOJQq_pzRYCn8l9i23GA-q4gAn8F4dTr17b5G0OfNLTjYhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA
+              - --p2p-peer-upper-bound=100
+              - --data-storage-non-canonical-blocks-enabled=true
+              - --data-storage-mode=PRUNE
+              - --logging=info
+              - --Xlog-include-p2p-warnings-enabled
+              - --metrics-block-timing-tracking-enabled
+              - --Xpeer-rate-limit=100000
+              - --Xpeer-request-limit=1000
+              - --ignore-weak-subjectivity-period-enabled
             prysm:
             lighthouse:
               - --testnet-dir=/data/network-config
@@ -108,22 +118,22 @@ lodestar-geth-001:
             CHAINSPEC_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/el/chainspec.json;
             GENESIS_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/el/genesis.json;
             BESU_GENESIS_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/el/besu.json;
-            BOOTNODES_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/el/bootnodes.txt;
-            mkdir -p /data/network-config;
+            ENODES_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/el/enodes.txt;
+            mkdir -p /data/network-config/metadata;
             if ! [ -f /data/network_config_init_done ];
             then
               apk update && apk add curl jq;
-              wget -O /data/network-config/chainspec.json $CHAINSPEC_URI;
-              wget -O /data/network-config/genesis.json $GENESIS_URI;
-              wget -O /data/network-config/besu.json $BESU_GENESIS_URI;
-              wget -O /data/network-config/bootnodes.txt $BOOTNODES_URI;
+              wget -O /data/network-config/metadata/chainspec.json $CHAINSPEC_URI;
+              wget -O /data/network-config/metadata/genesis.json $GENESIS_URI;
+              wget -O /data/network-config/metadata/besu.json $BESU_GENESIS_URI;
+              wget -O /data/network-config/metadata/enodes.txt $ENODES_URI;
               cat /data/network-config/genesis.json | jq -r '.config.chainId' > /data/network-config/chainid.txt;
               touch /data/network_config_init_done;
               echo "network config init done";
             else
               echo "network config already present";
             fi;
-            echo "bootnode init done: $(cat /data/network-config/bootnodes.txt)";
+            echo "bootnode init done: $(cat /data/network-config/metadata/enodes.txt)";
         volumeMounts:
           - name: storage
             mountPath: "/data"
@@ -139,7 +149,7 @@ lodestar-geth-001:
           - >
             if ! [ -f /data/genesis_init_done ];
             then
-              geth init --state.scheme=path --datadir /data /data/network-config/genesis.json;
+              geth init --state.scheme=path --datadir /data /data/network-config/metadata/genesis.json;
               touch /data/genesis_init_done;
               echo "genesis init done";
             else
@@ -189,27 +199,27 @@ lodestar-geth-001:
         - -ace
         - >
           apk add jq curl sed;
-          DEPOSIT_CONTRACT_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/deposit_contract.txt;
+          DEPOSIT_CONTRACT_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deposit_contract.txt;
           DEPOSIT_CONTRACT_BLOCK_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deposit_contract_block.txt;
-          DEPLOY_BLOCK_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deploy_block.txt;
+          DEPOSIT_CONTRACT_BLOCK_HASH_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deposit_contract_block_hash.txt;
           GENESIS_CONFIG_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/cl/config.yaml;
           GENESIS_SSZ_URI=https://config.verkle-gen-devnet-6.ethpandaops.io/cl/genesis.ssz;
-          mkdir -p /data/network-config;
-          curl -s https://config.verkle-gen-devnet-6.ethpandaops.io/api/v1/nodes/inventory | jq -r '.ethereum_pairs[] | .consensus.enr' > /data/network-config/bootnodes.txt;
-          if ! [ -f /data/network-config/genesis.ssz ];
+          mkdir -p /data/network-config/metadata;
+          curl -s https://config.verkle-gen-devnet-6.ethpandaops.io/api/v1/nodes/inventory | jq -r '.ethereum_pairs[] | .consensus.enr' > /data/network-config/metadata/bootstrap_nodes.txt;
+          if ! [ -f /data/network-config/metadata/genesis.ssz ];
           then
-            wget -O /data/network-config/deposit_contract.txt $DEPOSIT_CONTRACT_URI;
-            wget -O /data/network-config/deposit_contract_block.txt $DEPOSIT_CONTRACT_BLOCK_URI;
-            wget -O /data/network-config/deploy_block.txt $DEPLOY_BLOCK_URI;
-            wget -O /data/network-config/config.yaml $GENESIS_CONFIG_URI;
-            wget -O /data/network-config/genesis.ssz $GENESIS_SSZ_URI;
+            wget -O /data/network-config/metadata/deposit_contract.txt $DEPOSIT_CONTRACT_URI;
+            wget -O /data/network-config/metadata/deposit_contract_block.txt $DEPOSIT_CONTRACT_BLOCK_URI;
+            wget -O /data/network-config/metadata/deposit_contract_block_hash.txt $DEPOSIT_CONTRACT_BLOCK_HASH_URI;
+            wget -O /data/network-config/metadata/config.yaml $GENESIS_CONFIG_URI;
+            wget -O /data/network-config/metadata/genesis.ssz $GENESIS_SSZ_URI;
             echo "genesis init done";
           else
             echo "genesis exists. skipping...";
           fi;
-          (tr '\n' ',' < /data/network-config/bootnodes.txt | sed 's/[^,]*/"&"/g') > /data/network-config/bootnodes2.txt;
-          mv /data/network-config/bootnodes2.txt /data/network-config/bootnodes.txt;
-          echo "bootnode init done: $(cat /data/network-config/bootnodes.txt)";
+          (tr '\n' ',' < /data/network-config/metadata/bootstrap_nodes.txt | sed 's/[^,]*/"&"/g') > /data/network-config/metadata/bootstrap_nodes2.txt;
+          mv /data/network-config/metadata/bootstrap_nodes2.txt /data/network-config/metadata/bootstrap_nodes.txt;
+          echo "bootnode init done: $(cat /data/network-config/metadata/bootstrap_nodes.txt)";
       volumeMounts:
         - name: storage
           mountPath: "/data"
