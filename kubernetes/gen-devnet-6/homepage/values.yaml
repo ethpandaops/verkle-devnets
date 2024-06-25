@@ -60,14 +60,15 @@ testnet-homepage:
     ## Genesis configuration
     ### Execution layer clients
     - https://config.verkle-gen-devnet-6.ethpandaops.io/el/genesis.json
+    - https://config.verkle-gen-devnet-6.ethpandaops.io/el/besu.json
     - https://config.verkle-gen-devnet-6.ethpandaops.io/el/chainspec.json
 
     ### Consensus layer clients
     - https://config.verkle-gen-devnet-6.ethpandaops.io/cl/config.yaml
     - https://config.verkle-gen-devnet-6.ethpandaops.io/cl/genesis.ssz
-    - https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deploy_block.txt
     - https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deposit_contract.txt
     - https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deposit_contract_block.txt
+    - https://config.verkle-gen-devnet-6.ethpandaops.io/cl/deposit_contract_block_hash.txt
 
 
   customArgs:
