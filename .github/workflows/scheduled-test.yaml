@@ -51,7 +51,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gh
         fi
-    
+
     # setup kubernetes backend
     - name: "Install kubectl"
       shell: bash
@@ -74,7 +74,7 @@ jobs:
       run: |
         rancher kubectl config view --raw > kubeconfig
         echo "kubeconfig=$(cat kubeconfig | base64 -w 0)" >> $GITHUB_OUTPUT
-    
+
     # run kurtosis testnet & verkle conversion test
     - name: Run kurtosis testnet
       id: testnet
@@ -109,7 +109,7 @@ jobs:
         end_time="$(date +%s)"
         runtime="$(expr $end_time - $start_time)"
         echo "**Run Time:** $(printf '%02dh:%02dm:%02ds\n' $((runtime/3600)) $((runtime%3600/60)) $((runtime%60)))" >> ./temp/notification_text.txt
-        
+
         echo "**Failed Test:**" >> ./temp/notification_text.txt
         if [ -z "${{ steps.testnet.outputs.test_result }}" ]; then
           echo "kurtosis testnet failed during startup" >> ./temp/notification_text.txt
