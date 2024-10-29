@@ -23,13 +23,13 @@ geth_container_command_extra_args:
   - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
   - --rpc.allow-unprotected-txs
   - --cache.preimages
-  - --override.prague={{ ethereum_genesis_timestamp }}
+  - --override.verkle={{ ethereum_genesis_timestamp }}
 geth_init_custom_network: true
 geth_init_custom_network_genesis_file: "{{ eth_testnet_config_dir }}/genesis.json"
 geth_container_pull: true
 geth_init_custom_network_container_command:
   - --datadir=/data
-  - --override.prague={{ ethereum_genesis_timestamp }}
+  - --override.verkle={{ ethereum_genesis_timestamp }}
   - --cache.preimages
   - init
   - /genesis.json

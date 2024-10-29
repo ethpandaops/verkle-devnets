@@ -1,5 +1,5 @@
 ethereum_cl_bootnodes:
-  - "{{ hostvars['lighthouse-geth-1']['ethereum_node_fact_cl_enr'] }}"
+  - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_cl_enr'] }}"
 
 # ethereum_el_bootnodes:
 #   - "{{ hostvars['lodestar-geth-1']['ethereum_node_fact_el_enode'] }}"
@@ -29,7 +29,6 @@ bootstrap_default_user_authorized_keys_github_team_el:
 bootstrap_default_user_authorized_keys_github_team_cl:
   - dapplion
   - wemeetagain
-  - tuyennhv
   - g11tech
   - philknows
   - nazarhussain
@@ -67,13 +66,13 @@ geth_container_command_extra_args:
   - --syncmode=full
   #- --bootnodes={{ ethereum_el_bootnodes | join(',') }}
   - --cache.preimages
-  - --override.prague={{ ethereum_genesis_timestamp }}
+  - --override.verkle={{ ethereum_genesis_timestamp }}
 geth_init_custom_network: true
 geth_init_custom_network_genesis_file: "{{ eth_testnet_config_dir }}/genesis.json"
 geth_container_pull: true
 geth_init_custom_network_container_command:
   - --datadir=/data
-  - --override.prague={{ ethereum_genesis_timestamp }}
+  - --override.verkle={{ ethereum_genesis_timestamp }}
   - --cache.preimages
   - init
   - /genesis.json
