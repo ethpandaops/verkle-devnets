@@ -1,0 +1,4 @@
+secret_nginx_shared_basic_auth:
+    name: eth
+    password: g11techisntoneperson
+
