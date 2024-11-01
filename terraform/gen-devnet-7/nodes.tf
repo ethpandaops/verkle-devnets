@@ -12,7 +12,7 @@ variable "bootnode" {
 variable "witness_explorer" {
   default = {
     name            = "lodestar-geth-witness"
-    count           = 0
+    count           = 1
     validator_start = 0
     validator_end   = 0
   }

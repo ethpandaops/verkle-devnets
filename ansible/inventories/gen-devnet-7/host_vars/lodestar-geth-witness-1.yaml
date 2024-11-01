@@ -1,0 +1,19 @@
+
+# role: ethpandaops.general.geth
+geth_container_name: execution
+geth_container_image: "{{ default_tooling_images.witness_explorer }}"
+geth_container_env:
+  VIRTUAL_HOST: "witness.{{ network_subdomain }}"
+  VIRTUAL_PORT: "8181"
+  LETSENCRYPT_HOST: "witness.{{ network_subdomain }}"
+
+geth_container_command_extra_args:
+  - --http.api=eth,net,web3,debug,admin,personal
+  - --http.vhosts=*
+  - --networkid={{ ethereum_network_id }}
+  - --syncmode=full
+  - --bootnodes={{ ethereum_el_bootnodes | join(',') }}
+  - --rpc.allow-unprotected-txs
+  - --cache.preimages
+  - --cache.noprefetch=true
+  - --override.verkle={{ ethereum_genesis_timestamp }}

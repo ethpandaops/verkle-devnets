@@ -102,6 +102,7 @@ testnet-homepage:
         blobscanUrl: https://blobscan.com
         blobscanethpandaUrl: https://blobscan.verkle-gen-devnet-7.ethpandaops.io
         ethstatsUrl: https://ethstats.verkle-gen-devnet-7.ethpandaops.io
+        witnessexplorerUrl: "https://witness.verkle-gen-devnet-7.ethpandaops.io"
         chainName: "verkle-gen-devnet-7"
         chainId: "69420"
         github: https://github.com/ethpandaops/verkle-devnets/tree/master/network-configs/gen-devnet-7/metadata
@@ -132,6 +133,8 @@ testnet-homepage:
         dataLookup: assertoorUrl
       - name: "Beaconchain explorer"
         dataLookup: "beaconexplorerUrl"
+      - name: "Witness Explorer"
+        dataLookup: "witnessexplorerUrl"
       - name: "Blobscan"
         dataLookup: blobscanUrl
       - name: "Blobscan ethpanda edition"

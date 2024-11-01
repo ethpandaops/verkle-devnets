@@ -24,7 +24,6 @@ default_tooling_images:
   dugtrio: ethpandaops/dugtrio:latest
   powfaucet: pk910/powfaucet:v2-stable
   witness_explorer: ethpandaops/geth:witness-explorer
-  dugtrio: ethpandaops/dugtrio:latest
   tracoor: ethpandaops/tracoor:0.0.25-debian
   ncli: status-im/nimbus-eth2:unstable
   lcli: ethpandaops/lighthouse:unstable-a94b12blo
