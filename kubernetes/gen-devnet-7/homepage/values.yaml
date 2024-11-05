@@ -121,8 +121,6 @@ testnet-homepage:
         dataLookup: rpcUrl
       - name: "Beacon RPC"
         dataLookup: beaconRpcUrl
-      - name: "Dora the Explorer"
-        dataLookup: doraUrl
       - name: "Assertoor"
         dataLookup: assertoorUrl
       - name: "Witness Explorer"
