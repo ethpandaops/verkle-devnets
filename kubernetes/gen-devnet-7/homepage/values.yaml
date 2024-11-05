@@ -93,14 +93,10 @@ testnet-homepage:
         faucetUrl: https://faucet.verkle-gen-devnet-7.ethpandaops.io
         rpcUrl: https://rpc.verkle-gen-devnet-7.ethpandaops.io
         beaconRpcUrl: https://beacon.verkle-gen-devnet-7.ethpandaops.io
-        explorerUrl: https://explorer.verkle-gen-devnet-7.ethpandaops.io
         forkmonUrl: https://forkmon.verkle-gen-devnet-7.ethpandaops.io
         assertoorUrl: https://assertoor.verkle-gen-devnet-7.ethpandaops.io
-        beaconexplorerUrl: "https://verkle-gen-devnet-7.beaconcha.in"
         doraUrl: https://dora.verkle-gen-devnet-7.ethpandaops.io
         checkpointSyncUrl: "https://checkpoint-sync.verkle-gen-devnet-7.ethpandaops.io"
-        blobscanUrl: https://blobscan.com
-        blobscanethpandaUrl: https://blobscan.verkle-gen-devnet-7.ethpandaops.io
         ethstatsUrl: https://ethstats.verkle-gen-devnet-7.ethpandaops.io
         witnessexplorerUrl: "https://witness.verkle-gen-devnet-7.ethpandaops.io"
         chainName: "verkle-gen-devnet-7"
@@ -125,21 +121,12 @@ testnet-homepage:
         dataLookup: rpcUrl
       - name: "Beacon RPC"
         dataLookup: beaconRpcUrl
-      - name: "Explorer"
-        dataLookup: explorerUrl
       - name: "Dora the Explorer"
         dataLookup: doraUrl
       - name: "Assertoor"
         dataLookup: assertoorUrl
-      - name: "Beaconchain explorer"
-        dataLookup: "beaconexplorerUrl"
       - name: "Witness Explorer"
         dataLookup: "witnessexplorerUrl"
-      - name: "Blobscan"
-        dataLookup: blobscanUrl
-      - name: "Blobscan ethpanda edition"
-        dataLookup: blobscanethpandaUrl
-      - name: "Checkpoint Sync"
         dataLookup: checkpointSyncUrl
       - name: "Faucet"
         dataLookup: faucetUrl
@@ -154,4 +141,4 @@ testnet-homepage:
           url: https://ethereum.org
           weight: 30
     disableKinds: ["taxonomy", "taxonomyTerm"]
-    copyright: "Long live the surge"
+    copyright: "Long live the verge"
