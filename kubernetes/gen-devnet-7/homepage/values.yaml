@@ -123,6 +123,8 @@ testnet-homepage:
         dataLookup: beaconRpcUrl
       - name: "Assertoor"
         dataLookup: assertoorUrl
+      - name: "Dora the Explorer"
+        dataLookup: doraUrl
       - name: "Witness Explorer"
         dataLookup: "witnessexplorerUrl"
       - name: "Faucet"
