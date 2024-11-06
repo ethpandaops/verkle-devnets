@@ -125,7 +125,6 @@ testnet-homepage:
         dataLookup: assertoorUrl
       - name: "Witness Explorer"
         dataLookup: "witnessexplorerUrl"
-        dataLookup: checkpointSyncUrl
       - name: "Faucet"
         dataLookup: faucetUrl
       - name: "Forkmon"
